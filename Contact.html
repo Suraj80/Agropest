@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Agro-Pests Solutions</title>
+    <style>
+        /* General Styles */
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color:;
+        }
+
+        /* Top navbar styling */
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #28a745;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: white;
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            background-color: #2ecc71; /* Light green for hover */
+            color: #155724;           /* Dark green for font color */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        /* Main navbar styling */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #H1 {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #28a745;
+        }
+
+        #H1 img {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            flex-grow: 1;
+        }
+
+        .nav-links ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links ul li a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 18px;
+            padding: 10px 15px; /* Added padding for hover effect */
+            border-radius: 5px; /* Smooth corners for hover effect */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hover effect for navigation links */
+        .nav-links ul li a:hover {
+            background-color: #28a745; /* Green hover background */
+            color: white; /* White font color for better contrast */
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px 10%;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1e774d;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #1e774d;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #555555;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1e774d;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .contact-info div strong {
+            color: #333333;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="Admin.html">Admin Login</a>
+    </div>
+
+    <!-- Main navigation bar -->
+    <nav>
+        <div id="H1">
+            Agro Pest
+            <img src="Images/Cart.png" alt="Cart Logo">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Contact Us</h2>
+        <h3>GET IN TOUCH WITH US</h3>
+        <p>Our team is always ready to assist. Drop us a text and one of our members will get back to you. Want to skip the form? Use any of the following links to reach us directly.</p>
+
+        <div class="contact-info">
+            <div>
+                <div class="icon">📍</div>
+                <div>
+                    <strong>Our Location</strong>
+                    <p>Mang Building, Haile Selasie Ave</p>
+                    <p>Opposite KFA-Bus Station. Nairobi, Kenya.</p>
+                </div>
+            </div>
+            <div>
+                <div class="icon">📞</div>
+                <div>
+                    <strong>Phone Number</strong>
+                    <p>+254728400331</p>
+                </div>
+            </div>
+            <div>
+                <div class="icon">📧</div>
+                <div>
+                    <strong>Email Address</strong>
+                    <p>support@agropests.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Agro Pest. All Rights Reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms of Service</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!-- blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: rgb(1, 65, 1);
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: lightgreen;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+
+        .main-content {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 25%;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.2s;
+        }
+
+        .sidebar ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .blog-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            width: 75%;
+        }
+
+        .blog-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-card h2 {
+            font-size: 18px;
+            margin: 15px;
+        }
+
+        .blog-card p {
+            margin: 0 15px 15px;
+            color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .read-more {
+            display: block;
+            text-align: center;
+            margin: 10px auto 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .read-more:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+     <!-- Top navigation bar -->
+     <div class="top-nav">
+        <a href="#">Admin Login</a>
+    </div>
+
+    <!-- Main navigation bar -->
+    <div class="main-nav">
+        <div class="logo">Agro Pest</div>
+        <div class="nav-links">
+            <a href="Index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">Crop Solutions</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">Products</a>
+                    <a href="Crops.html">Crops</a>
+                </div>
+            </div>
+            <a href="About.html">About Us</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+        <div class="language-dropdown">
+            <button>Select Language</button>
+            <div class="language-dropdown-content">
+                <a href="Home2.html">English</a>
+                <a href="Home3.html">Kannada</a>
+                <a href="Home4.html">Hindi</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <aside class="sidebar">
+            <h3>Blog Titles</h3>
+            <ul>
+                <li><a href="Blog1.html">Protect your October Harvest</a></li>
+                <li><a href="Blog2.html">Advance Farming Solutions</a></li>
+                <li><a href="Blog3.html">Product Title 3</a></li>
+                <li><a href="Blog4.html">Product Title 3</a></li>
+                <li><a href="Blog5.html">Product Title 3</a></li>
+                <li><a href="Blog6.html">Product Title 3</a></li>
+            </ul>
+        </aside>
+
+        <section class="blog-container">
+            <article class="blog-card">
+                <img src="images/Homebg2.jpg" alt="Product 1">
+                <h2>Protect Your October Harvest</h2>
+                <p>Fungicide Strategies for Wheat and Rice Crops</p>
+                <a href="" class="read-more">Read More</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/Blog2.jpg" alt="Product 2">
+                <h2>Advance Farming Solutions</h2>
+                <p>Applying Advance Farming Solutions to Protect your crops this season</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="Product 3">
+                <h2>Product Title 3</h2>
+                <p>This is a brief description of product 3. Eco-friendly and highly efficient.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="Product 3">
+                <h2>Product Title 3</h2>
+                <p>This is a brief description of product 3. Eco-friendly and highly efficient.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="Product 3">
+                <h2>Product Title 3</h2>
+                <p>This is a brief description of product 3. Eco-friendly and highly efficient.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="Product 3">
+                <h2>Product Title 3</h2>
+                <p>This is a brief description of product 3. Eco-friendly and highly efficient.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Agro Pest. All rights reserved.</p>
+    </footer>
+</body>
+</html>
