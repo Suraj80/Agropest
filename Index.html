@@ -282,7 +282,7 @@
       transition: background-color 0.3s ease;
     }
     .H2{
-        background-color: #aaa;
+        background-color: #aaa; 
         padding: 150px;
     }
   
@@ -621,11 +621,11 @@
         <div class="contact-overlay"></div>
         <div class="contact-form-container">
             <h2>Contact Us</h2>
-            <form class="contact-form" action="user_info.php" method="post">
-                <input type="text" placeholder="Your name*" required>
-                <input type="email" placeholder="Email id*" required>
-                <input type="tel" placeholder="Mobile No.*" required>
-                <textarea placeholder="Type your message here" required></textarea>
+            <form class="contact-form" action="process.php" method="post">
+                <input type="text" placeholder="Your name*" name="Name" required>
+                <input type="email" placeholder="Email id*" name="Email" required>
+                <input type="tel" placeholder="Mobile No.*" name="Phone"required>
+                <textarea placeholder="Type your message here" required name="Text"></textarea>
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -641,15 +641,15 @@
             <div class="footer-item">
                 <h3>POLICY INFO</h3>
                 <ul>
-                    <li><a href="#" style="color: #fff;">Privacy Policy</a></li>
-                    <li><a href="#" style="color: #fff;">Terms of Use</a></li>
+                    <li><a href="Privacy_policy.html" style="color: #fff;">Privacy Policy</a></li>
+                    <li><a href="Terms_of_Service.html" style="color: #fff;">Terms of Use</a></li>
                 </ul>
             </div>
             <div class="footer-item">
                 <h3>HELP</h3>
                 <ul>
-                    <li><a href="#" style="color: #fff;">FAQ</a></li>
-                    <li><a href="#" style="color: #fff;">Contact Us</a></li>
+                    <li><a href="FAQ.HTML" style="color: #fff;">FAQ</a></li>
+                    <li><a href="Contact.html" style="color: #fff;">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-item">
@@ -665,7 +665,7 @@
             <a href="#"><img src="Images/twitter.png" alt="Twitter" style="width: 24px; margin: 0 10px;"></a>
         </div>
         <div class="footer-bottom" style="text-align: center; margin-top: 20px; color: #aaa;">
-            <p>© 2024 Copyright: Agro Pest</p>
+            <p>© 2025 Copyright: Agro Pest</p>
         </div>
     </footer>
     <script>
