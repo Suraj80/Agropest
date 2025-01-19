@@ -139,7 +139,7 @@
         <h1>Agropest</h1>
         <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
         <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
-        <a href="user_info.php"><img src="Images/user.png" alt="User Icon">CRM</a>
+        <a href="user_info.html"><img src="Images/user.png" alt="User Icon">CRM</a>
         <div class="logout">Logout</div>
     </div>
     
@@ -147,7 +147,7 @@
 
     <div class="content">
         <div class="header">
-            <h1>Agropest Admin Dashboard</h1>
+            <h1>CRM DashBoard</h1>
             <div class="nav-bar">
                 <div class="icon-container">
                     <img src="Images/email.png" alt="Messages" id="message-icon">
@@ -208,26 +208,6 @@
     });
 });
 
-
-
-        async function fetchWebsiteStats() {
-            try {
-                // Simulate fetching data from an API
-                const response = await fetch('https://api.example.com/website-stats'); // Replace with your API endpoint
-                const data = await response.json();
-
-                document.getElementById('total-visits').textContent = data.totalVisits;
-                document.getElementById('traffic-details').textContent = data.trafficDetails;
-            } catch (error) {
-                console.error('Error fetching website stats:', error);
-                document.getElementById('total-visits').textContent = 'Error fetching data';
-                document.getElementById('traffic-details').textContent = 'Error fetching data';
-            }
-        }
-
-        // Fetch stats on page load
-        fetchWebsiteStats();
-    </script>
 
 </body>
 </html>

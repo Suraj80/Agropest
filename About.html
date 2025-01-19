@@ -7,42 +7,147 @@
     <style>
         /* General Styles */
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Navigation Bar */
-        nav {
-            background-color: #4caf50;
-            color: #fff;
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: rgb(1, 65, 1);
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color:white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
         }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
+        .main-nav .logo {
+            font-size: 24px;
             font-weight: bold;
+            color: darkgreen;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color:darkgreen;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
         }
 
         /* About Us Section */
         .about-us {
             text-align: center;
             padding: 50px 20px;
-            background-color: #fff;
+            background-color: #e8e8e8bc;
         }
 
         .about-us h1 {
-            color: #4caf50;
+            color: darkgreen;
             margin-bottom: 20px;
             font-size: 40px;
         }
@@ -158,17 +263,35 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <a href="index.html">Agro Pest</a>
+    <!-- Top navigation bar -->
+    <div class="top-nav">
+        <a href="#">Admin Login</a>
+    </div>
+
+    <!-- Main navigation bar -->
+    <div class="main-nav">
+        <div class="logo">Agro Pest</div>
+        <div class="nav-links">
+            <a href="Index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">Crop Solutions</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">Products</a>
+                    <a href="Crops.html">Crops</a>
+                </div>
+            </div>
+            <a href="About.html">About Us</a>
+            <a href="Contact.html">Contact</a>
         </div>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html">Login</a>
+        <div class="language-dropdown">
+            <button>Select Language</button>
+            <div class="language-dropdown-content">
+                <a href="Index.html">English</a>
+                <a href="Home2.html">Kannada</a>
+                <a href="Home3.html">Hindi</a>
+            </div>
         </div>
-    </nav>
+    </div>
 
     <section class="about-us">
         <h1>About Us</h1>

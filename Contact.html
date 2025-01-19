@@ -6,91 +6,137 @@
     <title>Contact Us - Agro-Pests Solutions</title>
     <style>
         /* General Styles */
-        body, ul, li {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color:;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Top navbar styling */
+        /* Top navigation bar */
         .top-nav {
-            display: flex;
-            justify-content: flex-end;
-            background-color: #28a745;
-            padding: 10px 20px;
-            font-size: 14px;
+            background-color: darkgreen;
             color: white;
+            padding: 10px;
+            text-align: right;
         }
 
         .top-nav a {
-            text-decoration: none;
             color: white;
-            margin-left: 15px;
-            transition: color 0.3s ease;
+            text-decoration: none;
+            margin-left: 20px;
         }
 
         .top-nav a:hover {
-            background-color: #2ecc71; /* Light green for hover */
-            color: #155724;           /* Dark green for font color */
-            transition: all 0.3s ease; /* Smooth transition */
+            background-color: rgb(1, 65, 1);
+            padding: 10px;
+            text-decoration: none;
         }
 
-        /* Main navbar styling */
-        nav {
+        /* Main navigation bar */
+        .main-nav {
+            background-color: rgb(231, 231, 231);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #ffffff;
-            padding: 20px 30px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
         }
 
-        #H1 {
+        .main-nav .logo {
             font-size: 24px;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            color: #28a745;
+            color: darkgreen;
         }
 
-        #H1 img {
-            width: 30px;
-            height: 30px;
-            margin-left: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 20px;
-            flex-grow: 1;
-        }
-
-        .nav-links ul {
+        .main-nav .nav-links {
             display: flex;
             gap: 20px;
+            position: relative;
+            align-items: center;
         }
 
-        .nav-links ul li a {
+        .main-nav .nav-links a {
             text-decoration: none;
-            color: #333333;
-            font-size: 18px;
-            padding: 10px 15px; /* Added padding for hover effect */
-            border-radius: 5px; /* Smooth corners for hover effect */
-            transition: background-color 0.3s ease, color 0.3s ease;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
         }
 
-        /* Hover effect for navigation links */
-        .nav-links ul li a:hover {
-            background-color: #28a745; /* Green hover background */
-            color: white; /* White font color for better contrast */
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
         }
 
         /* Main Content */
@@ -162,7 +208,7 @@
 
         footer a {
             color: #fff;
-            text-decoration: none;
+            text-decoration: none;``
             font-weight: bold;
         }
 
@@ -172,25 +218,37 @@
     </style>
 </head>
 <body>
+    <!-- Main navigation bar -->
+    <!-- Top navigation bar -->
     <div class="top-nav">
-        <a href="Admin.html">Admin Login</a>
+        <a href="#">Admin Login</a>
     </div>
 
     <!-- Main navigation bar -->
-    <nav>
-        <div id="H1">
-            Agro Pest
-            <img src="Images/Cart.png" alt="Cart Logo">
-        </div>
+    <div class="main-nav">
+        <div class="logo">Agro Pest</div>
         <div class="nav-links">
-            <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-                <li><a href="Login.html">Login</a></li>
-            </ul>
+            <a href="Index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">Crop Solutions</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">Products</a>
+                    <a href="Crops.html">Crops</a>
+                </div>
+            </div>
+            <a href="About.html">About Us</a>
+            <a href="Contact.html">Contact</a>
         </div>
-    </nav>
+        <div class="language-dropdown">
+            <button>Select Language</button>
+            <div class="language-dropdown-content">
+                <a href="Index.html">English</a>
+                <a href="Home2.html">Kannada</a>
+                <a href="Home3.html">Hindi</a>
+            </div>
+        </div>
+    </div>
+    
     <!-- Main Content -->
     <div class="container">
         <h2>Contact Us</h2>
@@ -202,15 +260,15 @@
                 <div class="icon">📍</div>
                 <div>
                     <strong>Our Location</strong>
-                    <p>Mang Building, Haile Selasie Ave</p>
-                    <p>Opposite KFA-Bus Station. Nairobi, Kenya.</p>
+                    <p>Melligeri Towers, Main Road, </p>
+                    <p>Station Road, Bagalkot - 587101 </p>
                 </div>
             </div>
             <div>
                 <div class="icon">📞</div>
                 <div>
                     <strong>Phone Number</strong>
-                    <p>+254728400331</p>
+                    <p>+917947425804</p>
                 </div>
             </div>
             <div>
@@ -225,8 +283,8 @@
     <footer>
         <p>© 2024 Agro Pest. All Rights Reserved.</p>
         <p>
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="terms.html">Terms of Service</a>
+            <a href="Privacy_policy.html">Privacy Policy</a> | 
+            <a href="Terms_of_Service.html">Terms of Service</a>
         </p>
     </footer>
 </body>
