@@ -1,3 +1,22 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "user_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch contact form data
+$sql = "SELECT name, email, phone, message FROM contact_us";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,50 +123,67 @@
         .profile-pic:hover {
             transform: scale(1.3);
         }
+
         .icon-container {
-    position: relative;
-    display: inline-block;
-}
+            position: relative;
+            display: inline-block;
+        }
 
-.badge {
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
-    font-weight: bold;
-    display: none; /* Initially hidden when there are no messages */
-}
-
-#message-icon:hover + .badge {
-    transform: scale(1.3); /* Optional hover effect for the badge */
-    transition: transform 0.3s ease;
-}
-
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            font-weight: bold;
+            display: none; /* Initially hidden when there are no messages */
+        }
 
         h1 {
             margin: 0;
         }
+
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #bdc3c7;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
     </style>
 </head>
 <body>
-
     <div class="sidebar">
         <h1>Agropest</h1>
-        <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
+        <a href="dashboard.php"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
         <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
         <a href="user_info.html"><img src="Images/user.png" alt="User Icon">CRM</a>
         <div class="logout">Logout</div>
     </div>
     
-    
-
     <div class="content">
         <div class="header">
-            <h1>CRM DashBoard</h1>
+            <h1>CRM Dashboard</h1>
             <div class="nav-bar">
                 <div class="icon-container">
                     <img src="Images/email.png" alt="Messages" id="message-icon">
@@ -155,59 +191,57 @@
                 </div>
                 <img src="Images/user.png" alt="Profile Picture" class="profile-pic">
             </div>
-            
         </div>
-        <div id="dashboard">
-            <h2>Dashboard Section</h2>
-            <p>Welcome to the dashboard!</p>
-            <div id="website-stats">
-                <h3>Website Stats</h3>
-                <p>Total Visits: <span id="total-visits">Loading...</span></p>
-                <p>Traffic Details: <span id="traffic-details">Loading...</span></p>
-            </div>
+
+        <div class="table-container">
+            <h2>Contact Us Submissions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                    <td>" . htmlspecialchars($row['name']) . "</td>
+                                    <td>" . htmlspecialchars($row['email']) . "</td>
+                                    <td>" . htmlspecialchars($row['phone']) . "</td>
+                                    <td>" . htmlspecialchars($row['message']) . "</td>
+                                  </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>No submissions found</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
-        
-        <div id="products">
-            <h2>Products Section</h2>
-            <p>Manage your products here.</p>
-        </div>
-        
-        <div id="user-info">
-            <h2>User Info Section</h2>
-            <p>View and manage user information here.</p>
-        </div>
-        
+    </div>
 
     <script>
-        let messageCount = 0;
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) { 
+                    event.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
 
-    // Function to increment message count and display badge
-    function addNewMessage() {
-        messageCount++;
-        const badge = document.getElementById("message-badge");
-        badge.textContent = messageCount;
-        badge.style.display = "block"; // Show badge when new messages arrive
-    }
-
-    // Simulating new messages (call this whenever a new message arrives)
-    setTimeout(() => addNewMessage(), 2000); // Message 1 arrives after 2 seconds
-    setTimeout(() => addNewMessage(), 5000); // Message 2 arrives after 5 seconds
-
-    document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', function(event) {
-        const href = this.getAttribute('href');
-        if (href.startsWith('#')) { // Only prevent default for internal navigation
-            event.preventDefault();
-            const targetId = href.substring(1); // Remove '#' from href
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    });
-});
-
-
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+<?php
+$conn->close();
+?>

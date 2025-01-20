@@ -1,3 +1,65 @@
+<?php
+
+// Enable error reporting for debugging
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+// Database connection
+$conn = new mysqli('localhost', 'root', '', 'user_db');
+
+// Check for connection errors
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Initialize success and error messages
+$success = '';
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $quantity = $_POST['quantity'];
+
+    // Handle image upload
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
+        // Get binary content of the uploaded image
+        $photo = file_get_contents($_FILES['photo']['tmp_name']);
+    } else {
+        $error = "Error: Please upload an image.";
+    }
+
+    // Proceed if no errors in the upload
+    if (empty($error)) {
+        // Prepare the SQL query
+        $query = "INSERT INTO products (image, Name, Price, Quantity, Description) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($query);
+        if (!$stmt) {
+            die("Prepare failed: " . $conn->error);
+        }
+
+        // Bind parameters (b = blob, s = string, i = integer)
+        $stmt->bind_param('bsiss', $photo, $name, $price, $quantity, $description);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $success = "Product added successfully!";
+        } else {
+            $error = "Error: " . $stmt->error;
+        }
+
+        $stmt->close();
+    }
+}
+
+// Count total products
+$result = $conn->query("SELECT COUNT(*) AS productCount FROM products");
+$productCount = $result->fetch_assoc()['productCount'];
+$result->close();
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +139,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 30px;
-
         }
 
         .navbar-title {
@@ -135,6 +196,11 @@
             color: red;
             margin-bottom: 10px;
         }
+
+        .success {
+            color: green;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -145,7 +211,6 @@
         <a href="CMS.html"><img src="Images/user.png" alt="User Icon">CRM</a>
         <div class="logout">Logout</div>
     </div>
-    
 
     <div class="main-content">
         <div class="navbar">
@@ -163,14 +228,23 @@
         <div class="form-container">
             <h2>Add a New Product</h2>
             <?php if (!empty($error)): ?>
-                <p class="error">Error: <?php echo $error; ?></p>
+                <p class="error"><?php echo $error; ?></p>
+            <?php elseif (!empty($success)): ?>
+                <p class="success"><?php echo $success; ?></p>
             <?php endif; ?>
+
             <form action="admin_products.php" method="post" enctype="multipart/form-data">
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" required>
 
                 <label for="description">Product Description:</label>
                 <textarea id="description" name="description" rows="3" required></textarea>
+
+                <label for="price">Product Price (INR):</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+
+                <label for="quantity">Product Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
 
                 <label for="photo">Product Photo:</label>
                 <input type="file" id="photo" name="photo" accept="image/*" required>
@@ -181,3 +255,4 @@
     </div>
 </body>
 </html>
+                

@@ -1,3 +1,19 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "user_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +26,60 @@
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
+        }
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: white;
+            padding: 8px;
+            text-decoration: none;
+            color: darkgreen;
+            border-radius: 20px;
+        }
+
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
         }
 
         header {
@@ -35,11 +105,6 @@
             margin-bottom: 10px;
         }
 
-        section p {
-            font-size: 16px;
-            color: #555;
-        }
-
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -57,7 +122,7 @@
         }
 
         .product img {
-            width: 100px;
+            width: 150px;
             height: auto;
             margin-bottom: 10px;
         }
@@ -90,34 +155,43 @@
     </style>
 </head>
 <body>
+    <div class="top-nav">
+        <a href="Login.html">Admin Login</a>
+    </div>
+
+    <div class="main-nav">
+        <div class="logo">Agro Pest</div>
+        <div class="nav-links">
+            <a href="Index.html">Home</a>
+            <a href="Products.html">Products</a>
+            <a href="Crops.html">Crops</a>
+            <a href="About.html">About Us</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </div>
+
     <header>
         <img src="https://via.placeholder.com/1200x300" alt="Product Banner">
     </header>
 
     <section>
-        <h1>TRANSFORMING INDIA Through AgriCulture</h1>
+        <h1>TRANSFORMING INDIA Through Agriculture</h1>
         <p>Dhanuka provides a wide range of agrochemical solutions under its Herbicide, Insecticide, Fungicide, and Plant Growth Regulator (PGR) portfolio of brands.</p>
     </section>
 
     <section class="products">
-        <div class="product">
-            <img src="https://via.placeholder.com/100" alt="Targa Super">
-            <h2>TARGA SUPER</h2>
-            <p>Quizalofop Ethyl 5% EC<br>100 ml, 250 ml, 500 ml, 1 Ltr</p>
-            <button>Know More</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/100" alt="Foster">
-            <h2>FOSTER</h2>
-            <p>Cyflumetofen 20.00% SC<br>100 ml, 250 ml, 1 Ltr</p>
-            <button>Know More</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/100" alt="Lustre">
-            <h2>LUSTRE</h2>
-            <p>Flusilazole 12.5% + Carbendazim 25% SE<br>100 ml, 384 ml, 1 L</p>
-            <button>Know More</button>
-        </div>
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="product">
+                <img src="<?php echo $row['image']; ?>" alt="<?php echo $row['Name']; ?>">
+                <h2><?php echo $row['Name']; ?></h2>
+                <p><?php echo $row['Description']; ?></p>
+                <p><strong>Price:</strong> $<?php echo $row['Price']; ?></p>
+                <p><strong>Quantity:</strong> <?php echo $row['Quantity']; ?></p>
+                <button>Know More</button>
+            </div>
+        <?php endwhile; ?>
     </section>
 </body>
 </html>
+
+<?php $conn->close(); ?>
