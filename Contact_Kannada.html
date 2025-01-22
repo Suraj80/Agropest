@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Agro-Pests Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, p {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-weight: 400; /* Normal text weight */
+        }
+        h1, h2 {
+            font-weight: 700; /* Bold for headings */
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color:white;
+            padding: 8px;
+            text-decoration: none;
+            color:darkgreen;
+            border-radius: 20px;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px 10%;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1e774d;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #1e774d;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #555555;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1e774d;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .contact-info div strong {
+            color: #333333;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="Login.html">ನಿರ್ವಾಹಕ ಲಾಗಿನ್</a>
+    </div>
+    
+    <!-- ಮುಖ್ಯ ನ್ಯಾವಿಗೇಷನ್ ಬಾರ್ -->
+    <div class="main-nav">
+        <div class="logo">ಆಗ್ರೋ ಪೆಸ್ಟ್</div>
+        <div class="nav-links">
+            <a href="Index.html">ಮುಖಪುಟ</a>
+            <div class="dropdown">
+                <a href="#">ಬೆಳೆ ಪರಿಹಾರಗಳು</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">ಉತ್ಪನ್ನಗಳು</a>
+                    <a href="Crops.html">ಬೆಳೆಗಳು</a>
+                </div>
+            </div>
+            <a href="About.html">ನಮ್ಮ ಬಗ್ಗೆ</a>
+            <a href="Contact.html">ಸಂಪರ್ಕ</a>
+        </div>
+        <div class="language-dropdown">
+            <button>ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ</button>
+            <div class="language-dropdown-content">
+                <a href="Index.html">ಇಂಗ್ಲಿಷ್</a>
+                <a href="Home2.html">ಕನ್ನಡ</a>
+                <a href="Home3.html">ಹಿಂದಿ</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h2>
+        <h3>ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕದಲ್ಲಿರಿ</h3>
+        <p>ನಮ್ಮ ತಂಡ ಯಾವಾಗಲೂ ನಿಮಗೆ ಸಹಾಯ ಮಾಡಲು ಸಿದ್ಧವಾಗಿದೆ. ನಮಗೆ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಿ, ಮತ್ತು ನಮ್ಮ ಸದಸ್ಯರಲ್ಲಿ ಒಬ್ಬರು ನಿಮ್ಮೊಂದಿಗೆ ತಕ್ಷಣ ಸಂಪರ್ಕದಲ್ಲಿರುತ್ತಾರೆ. ಫಾರ್ಮ್ ಅನ್ನು ಹಾರಿ ಹೋಗಲು ಬಯಸುವಿರಾ? ನಮಗೆ ತಲುಪಲು ಕೆಳಗಿನ ಲಿಂಕ್‌ಗಳನ್ನು ಬಳಸಿ.</p>
+    
+        <div class="contact-info">
+            <div>
+                <div class="icon">📍</div>
+                <div>
+                    <strong>ನಮ್ಮ ಸ್ಥಳ</strong>
+                    <p>ಮೆಲ್ಲಿಗೇರಿ ಟವರ್ಸ್, ಮೆయిన్ ರೋಡ್,</p>
+                    <p>ಸ್ಟೇಷನ್ ರೋಡ್, ಬಾಗಲಕೋಟೆ - 587101</p>
+                </div>
+            </div>
+            <div>
+                <div class="icon">📞</div>
+                <div>
+                    <strong>ದೂರವಾಣಿ ಸಂಖ್ಯೆ</strong>
+                    <p>+917947425804</p>
+                </div>
+            </div>
+            <div>
+                <div class="icon">📧</div>
+                <div>
+                    <strong>ಇಮೇಲ್ ವಿಳಾಸ</strong>
+                    <p>support@agropests.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 ಆಗ್ರೋ-ಪೆಸ್ಟ್ ಸೊಲ್ಯೂಶನ್‌ಗಳು | ನಿರ್ವಾಹಕ ಲಾಗಿನ್</p>
+    </footer>
+    </body>
+    </html>
+
