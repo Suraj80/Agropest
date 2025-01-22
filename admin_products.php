@@ -208,7 +208,7 @@ $conn->close();
         <h1>Agropest</h1>
         <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
         <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
-        <a href="CMS.html"><img src="Images/user.png" alt="User Icon">CRM</a>
+        <a href="user_info.html"><img src="Images/user.png" alt="User Icon">CRM</a>
         <div class="logout">Logout</div>
     </div>
 

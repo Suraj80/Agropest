@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your October Harvest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: rgb(1, 65, 1);
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: lightgreen;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .blog-image img {
+            display: block;
+            max-width: 40%; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin: 20px auto; /* Center the image */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .popular {
+            background: #f4f4f4;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .popular ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .popular li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .popular img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links li {
+            margin: 0 10px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top navigation bar -->
+    <div class="top-nav">
+        <a href="#">Admin Login</a>
+    </div>
+
+    <!-- Main navigation bar -->
+    <div class="main-nav">
+        <div class="logo">Agro Pest</div>
+        <div class="nav-links">
+            <a href="Index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">Crop Solutions</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">Products</a>
+                    <a href="Crops.html">Crops</a>
+                </div>
+            </div>
+            <a href="About.html">About Us</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+        <div class="language-dropdown">
+            <button>Select Language</button>
+            <div class="language-dropdown-content">
+                <a href="Home2.html">English</a>
+                <a href="Home3.html">Kannada</a>
+                <a href="Home4.html">Hindi</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>Protect Your October Harvest: Fungicide Strategies for Wheat and Rice Crops</h1>
+        <p>By Dhanuka Agritech | January 01, 1970</p>
+    </header>
+
+    <main>
+        <section class="blog-image">
+            <img src="Homebg1.jpg" alt="Farmer applying fungicide in a field">
+        </section>
+
+        <section class="blog-content">
+            <p>
+                As October approaches, farmers face critical decisions about how to protect their wheat and rice crops from fungal diseases. 
+                A successful harvest depends on preventing and controlling these diseases to ensure the crops remain healthy and productive. 
+                Fungicide strategies play a key role in safeguarding your crops and helping you achieve a bountiful harvest.
+            </p>
+            <p>
+                In this blog, we’ll explore effective fungicide strategies for wheat and rice, while also discussing essential farming practices 
+                like using bio nutrients for plants, bio-agriculture, and the best plant fertilizer to support strong crop growth.
+            </p>
+        </section>
+    </main>
+
+    <aside class="popular">
+        <h2>Popular on Dhanuka</h2>
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="path-to-thumbnail.jpg" alt="Blog thumbnail">
+                    <p>Protect Your October Harvest: Fungicide Strategies for Wheat and Rice Crops</p>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer>
+        <ul class="social-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">WhatsApp</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector("header");
+            header.style.transition = "background 0.5s ease";
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.style.background = "#333";
+                } else {
+                    header.style.background = "#4CAF50";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
