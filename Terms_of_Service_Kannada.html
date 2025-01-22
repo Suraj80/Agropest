@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Agro-Pests Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, p {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-weight: 400; /* Normal text weight */
+        }
+        h1, h2 {
+            font-weight: 700; /* Bold for headings */
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color:white;
+            padding: 8px;
+            text-decoration: none;
+            color:darkgreen;
+            border-radius: 20px;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #H1 {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #28a745;
+        }
+
+        #H1 img {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 20px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        li a:hover {
+            color: #28a745;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1e774d;
+            color: white;
+            padding: 20px 10%;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 10%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2, h3 {
+            color: #1e774d;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            margin: 10px 0 20px 20px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background-color: #1e774d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        a {
+            color: #1e774d;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .sub-section {
+            margin-left: 20px;
+        }
+        </style>
+<body>
+    <div class="top-nav">
+        <a href="Login.html">ನಿರ್ವಾಹಕ ಲಾಗಿನ್</a>
+    </div>
+    
+    <!-- ಮುಖ್ಯ ನ್ಯಾವಿಗೇಷನ್ ಬಾರ್ -->
+    <div class="main-nav">
+        <div class="logo">ಆಗ್ರೋ ಪೆಸ್ಟ್</div>
+        <div class="nav-links">
+            <a href="Index2.html">ಮುಖಪುಟ</a>
+            <div class="dropdown">
+                <a href="#">ಬೆಳೆ ಪರಿಹಾರಗಳು</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">ಉತ್ಪನ್ನಗಳು</a>
+                    <a href="Crops.html">ಬೆಳೆಗಳು</a>
+                </div>
+            </div>
+            <a href="About_Kannada.html">ನಮ್ಮ ಬಗ್ಗೆ</a>
+            <a href="Contact_Kannada.html">ಸಂಪರ್ಕ</a>
+        </div>
+        <div class="language-dropdown">
+            <button>ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ</button>
+            <div class="language-dropdown-content">
+                <a href="Terms_of_Service.html">ಇಂಗ್ಲಿಷ್</a>
+                <a href="Terms_of_Service_Kannada.html">ಕನ್ನಡ</a>
+                <a href="Terms_of_Service_Hindi.html">ಹಿಂದಿ</a>
+            </div>
+        </div>
+    </div>
+    <header>
+        <h1>ಸೇವಾ ನಿಯಮಗಳು</h1>
+        <p>ಕೊನೆಯ ಬಾರಿ ನವೀಕರಿಸಿದ ದಿನಾಂಕ: ಜನವರಿ 23, 2025</p>
+    </header>
+
+    <div class="container">
+        <h2>ಸೇವಾ ನಿಯಮಗಳು</h2>
+        <h3>1. ಪರಿಚಯ</h3>
+        <div class="sub-section">
+            <p>ನೇತ್ರಾವತಿ ಅಗ್ರೋ ಕೆಂದ್ರಕ್ಕಾಗಿ ವಿಶೇಷವಾಗಿ ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ ಅಗ್ರೋ ಪೆಸ್ಟ್ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಸುಸ್ವಾಗತ. ನಮ್ಮ ವೇದಿಕೆಯನ್ನು ಪ್ರವೇಶಿಸುವ ಅಥವಾ ಬಳಸುವ ಮೂಲಕ, ಈ ಸೇವಾ ನಿಯಮಗಳನ್ನು ಪಾಲಿಸುವಂತೆ ನೀವು ಒಪ್ಪುತ್ತೀರಿ. ದಯವಿಟ್ಟು ಈ ನಿಯಮಗಳನ್ನು ಬಳಸದ ಮೊದಲು ಶ್ರದ್ದೆಯಿಂದ ಓದಿ. ನೀವು ಈ ನಿಯಮಗಳ ಯಾವುದೇ ಭಾಗವನ್ನು ಒಪ್ಪದಿದ್ದರೆ, ದಯವಿಟ್ಟು ವೇದಿಕೆಯನ್ನು ಬಳಸಬೇಡಿ.</p>
+        </div>
+
+        <h3>2. ವೆಬ್‌ಸೈಟ್ ಬಳಕೆ</h3>
+        <div class="sub-section">
+            <p><strong>ಯೋಗ್ಯತೆ:</strong> ಈ ವೆಬ್‌ಸೈಟ್ ಅನ್ನು ಬಳಸಲು ನೀವು ಕನಿಷ್ಠ 18 ವರ್ಷ ವಯಸ್ಸು ಹೊಂದಿರಬೇಕು.</p>
+            <p><strong>ಉದ್ದೇಶ:</strong> ಈ ವೆಬ್‌ಸೈಟ್ ಬೆಳೆಗಳ ರಕ್ಷಣೆ, ಕೀಟ ನಿಯಂತ್ರಣ ಮತ್ತು ಕೀಟನಾಶಕ ಮಾಹಿತಿ ನೀಡಲು ಉದ್ದೇಶಿಸಲಾಗಿದೆ.</p>
+            <p><strong>ಬಳಕೆದಾರರ ಜವಾಬ್ದಾರಿ:</strong> ಈ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ನೀಡಿದ ಮಾಹಿತಿಯನ್ನು ಬಳಸುವಾಗ ಅನ್ವಯವಾಗುವ ಕಾನೂನು ಮತ್ತು ನಿಯಮಗಳನ್ನು ಅನುಸರಿಸುವ ಜವಾಬ್ದಾರಿ ನಿಮ್ಮದಾಗಿದೆ.</p>
+        </div>
+
+        <h3>3. ಬೌದ್ಧಿಕ ಸ್ವತ್ತಿನ ಹಕ್ಕು</h3>
+        <div class="sub-section">
+            <p>ಈ ವೆಬ್‌ಸೈಟ್‌ನ ಎಲ್ಲಾ ವಿಷಯಗಳು, ಪಠ್ಯ, ಚಿತ್ರಗಳು, ವೀಡಿಯೊಗಳು, ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಸೇರಿದಂತೆ, ನೇತ್ರಾವತಿ ಅಗ್ರೋ ಕೆಂದ್ರ ಅಥವಾ ಅದರ ಲೈಸೆನ್ಸ್‌ದ ಆಸ್ತಿಯಾಗಿದೆ. ಅಕ್ರಮ ಬಳಕೆ, ಪ್ರತಿರೂಪಣೆ ಅಥವಾ ವಿತರಣೆ ನಿಷೇಧಿತವಾಗಿದೆ.</p>
+        </div>
+
+        <h3>4. ಹೊಣೆಗಾರಿಕೆಯ ಮಿತಿಗಳು</h3>
+        <div class="sub-section">
+            <ul>
+                <li>ಅಗ್ರೋ ಪೆಸ್ಟ್ ಕೀಟನಾಶಕಗಳು, ಕೀಟ ನಿಯಂತ್ರಣ ಮತ್ತು ಬೆಳೆ ನಿರ್ವಹಣೆ ಕುರಿತು ಅತ್ಯುತ್ತಮವಾಗಿ ಮಾಹಿತಿಯನ್ನು ನೀಡುತ್ತದೆ. ಆದಾಗ್ಯೂ:
+                    <ul>
+                        <li>ನೀಡಲಾದ ಮಾಹಿತಿಯ ಪೂರ್ಣ ಪ್ರಮಾಣದ ನಿಖರತೆ ಅಥವಾ ವಿಶ್ವಾಸಾರ್ಹತೆಯನ್ನು ನಾವು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ.</li>
+                        <li>ಬಳಕೆದಾರರು ತಮ್ಮ ಕ್ರಮಗಳನ್ನು ಕೈಗೊಳ್ಳುವ ಮೊದಲು ವೃತ್ತಿಪರ ಸಲಹೆ ಪಡೆದುಕೊಳ್ಳಬೇಕು.</li>
+                        <li>ವೆಬ್‌ಸೈಟ್ ಮತ್ತು ಅದರ ಮಾಲೀಕರು ವೇದಿಕೆಯ ಬಳಕೆ ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಉಂಟಾಗುವ ನೇರ ಅಥವಾ ಪರೋಕ್ಷ ಹಾನಿಗಳ ಹೊಣೆಗಾರರಲ್ಲ.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>5. ಆಡಳಿತಾತ್ಮಕ ಕಾನೂನು</h3>
+        <div class="sub-section">
+            <p>ಈ ಸೇವಾ ನಿಯಮಗಳು ಭಾರತದ ಕಾನೂನುಗಳ ವ್ಯಾಪ್ತಿಗೆ ಒಳಪಟ್ಟಿವೆ. ಈ ನಿಯಮಗಳ ಅಡಿಯಲ್ಲಿ ಉಂಟಾಗುವ ಯಾವುದೇ ವಿವಾದಗಳು ಕರ್ನಾಟಕದ ಬಾಗಲಕೋಟೆಯ ನ್ಯಾಯಾಲಯಗಳಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ.</p>
+        </div>
+
+        <h3>6. ಸಂಪರ್ಕ ಮಾಹಿತಿ</h3>
+        <div class="sub-section">
+            <p>ಈ ಸೇವಾ ನಿಯಮಗಳ ಬಗ್ಗೆ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳು ಅಥವಾ ಚಿಂತೆಗಳಿದ್ದಲ್ಲಿ, ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ:</p>
+            <p><strong>ವಿಳಾಸ:</strong> ಮೆಳ್ಳಿಗೇರಿ ಟವರ್ಸ್, ಮೆನ್ ರಸ್ತೆ, ಸ್ಟೇಷನ್ ರಸ್ತೆ, ಬಾಗಲಕೋಟೆ - 587101</p>
+            <p><strong>ಫೋನ್:</strong> 7760695701 / 7348848406</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ಅಗ್ರೋ ಪೆಸ್ಟ್ ಸಲ್ಯೂಷನ್ಸ್. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಸಂರಕ್ಷಿತವಾಗಿವೆ.</p>
+    </footer>
+</body>
+</html>
