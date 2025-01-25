@@ -180,17 +180,18 @@ $result = $conn->query($sql);
     </section>
 
     <section class="products">
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="product">
-                <img src="<?php echo $row['image']; ?>" alt="<?php echo $row['Name']; ?>">
-                <h2><?php echo $row['Name']; ?></h2>
-                <p><?php echo $row['Description']; ?></p>
-                <p><strong>Price:</strong> $<?php echo $row['Price']; ?></p>
-                <p><strong>Quantity:</strong> <?php echo $row['Quantity']; ?></p>
-                <button>Know More</button>
-            </div>
-        <?php endwhile; ?>
-    </section>
+    <?php while ($row = $result->fetch_assoc()): ?>
+        <div class="product">
+            <img src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt="<?php echo $row['Name']; ?>">
+            <h2><?php echo htmlspecialchars($row['Name']); ?></h2>
+            <p><?php echo htmlspecialchars($row['Description']); ?></p>
+            <p><strong>Price:</strong> ₹<?php echo htmlspecialchars($row['Price']); ?></p>
+            <p><strong>Quantity:</strong> <?php echo htmlspecialchars($row['Quantity']); ?></p>
+            <button>Know More</button>
+        </div>
+    <?php endwhile; ?>
+</section>
+
 </body>
 </html>
 

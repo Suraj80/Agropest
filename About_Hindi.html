@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Agro Pest</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: rgb(1, 65, 1);
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color:white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color:darkgreen;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+
+        /* About Us Section */
+        .about-us {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e8e8e8bc;
+        }
+
+        .about-us h1 {
+            color: darkgreen;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .about-container p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .grid-item {
+            flex: 1 1 30%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #e8f5e9;
+            text-align: center;
+        }
+
+        .grid-item h3 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        .grid-item p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            text-align: center;
+            background-color: #e8f5e9;
+            padding: 50px 20px;
+        }
+
+        .why-choose-us h2 {
+            color: #4caf50;
+            margin-bottom: 30px;
+            font-size: 40px;
+        }
+
+        .why-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-item {
+            flex: 1 1 45%;
+            text-align: left;
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .why-item img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .why-item h4 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        .why-item p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- शीर्ष नेविगेशन बार -->
+<div class="top-nav">
+    <a href="Login.php">प्रशासन लॉगिन</a>
+</div>
+
+<!-- मुख्य नेविगेशन बार -->
+<div class="main-nav">
+    <div class="logo">एग्रो पेस्ट</div>
+    <div class="nav-links">
+        <a href="Index3.html">होम</a>
+        <div class="dropdown">
+            <a href="#">फसल समाधान</a>
+            <div class="dropdown-content">
+                <a href="Products.html">उत्पाद</a>
+                <a href="Crops.html">फसलें</a>
+            </div>
+        </div>
+        <a href="About_Hindi.html">हमारे बारे में</a>
+        <a href="Contact_Hindi.html">संपर्क करें</a>
+    </div>
+    <div class="language-dropdown">
+        <button>भाषा चुनें</button>
+        <div class="language-dropdown-content">
+            <a href="About.html">अंग्रेजी</a>
+            <a href="About_Kannada.html">कन्नड़</a>
+            <a href="About_Hindi.html">हिंदी</a>
+        </div>
+    </div>
+</div>
+
+<section class="about-us">
+    <h1>हमारे बारे में</h1>
+    <div class="about-container">
+        <p>
+            एग्रो पेस्ट में, हम किसानों को उच्च गुणवत्ता वाले कीटनाशकों और कृषि उत्पादों के माध्यम से उनकी उत्पादकता बढ़ाने में मदद करते हैं, जो कीटों को प्रभावी ढंग से नियंत्रित करते हैं। 
+            हमारा मिशन स्थायी खेती को बढ़ावा देना और सभी के लिए खाद्य सुरक्षा सुनिश्चित करना है।
+        </p>
+        <div class="about-grid">
+            <div class="grid-item">
+                <h3>हमारा दृष्टिकोण</h3>
+                <p>
+                    खाद्य सुरक्षा वाले समाज और कीट-मुक्त कृषि परिसर सुनिश्चित करना, नवाचार समाधान प्रदान करना।
+                </p>
+            </div>
+            <div class="grid-item">
+                <h3>हमारा मिशन</h3>
+                <p>
+                    उच्च गुणवत्ता वाले उत्पाद और सेवाएं प्रदान करना जो स्थायी खेती और पर्यावरण के अनुकूल प्रथाओं का समर्थन करते हैं।
+                </p>
+            </div>
+            <div class="grid-item">
+                <h3>हमारा उद्देश्य</h3>
+                <p>
+                    फसलों की सुरक्षा को बेहतर बनाना और सुनिश्चित करना कि हमारे घर और खेत सुरक्षित और उत्पादक हैं।
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-choose-us">
+    <h2>हमें क्यों चुनें</h2>
+    <div class="why-grid">
+        <div class="why-item">
+            <img src="Images/digital-transformation.png" alt="डिजिटल परिवर्तन">
+            <div>
+                <h4>डिजिटल परिवर्तन</h4>
+                <p>हमारे डिजिटल समाधान सुनिश्चित करते हैं कि सही उत्पाद कुशलता से वितरित किए जाएं, जिससे उत्पादकता और सफलता बढ़े।</p>
+            </div>
+        </div>
+        <div class="why-item">
+            <img src="Images/customer.png" alt="ग्राहक उन्मुखता">
+            <div>
+                <h4>ग्राहक उन्मुखता</h4>
+                <p>हम ग्राहक की जरूरतों को समझने और उनके लिए अनुकूलित समाधान प्रदान करने को प्राथमिकता देते हैं।</p>
+            </div>
+        </div>
+        <div class="why-item">
+            <img src="Images/businessman.png" alt="व्यावसायिकता">
+            <div>
+                <h4>व्यावसायिकता</h4>
+                <p>हम उत्कृष्टता, ईमानदारी, और ग्राहकों के लिए सर्वोत्तम परिणाम प्राप्त करने पर ध्यान केंद्रित करते हुए सेवाएं प्रदान करते हैं।</p>
+            </div>
+        </div>
+        <div class="why-item">
+            <img src="Images/agree.png" alt="ईमानदारी">
+            <div>
+                <h4>ईमानदारी</h4>
+                <p>हम ईमानदारी, परिश्रम और पारदर्शिता पर जोर देते हैं, जिससे हमारे ग्राहकों के साथ स्थायी विश्वास बनता है।</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 एग्रो पेस्ट। सर्वाधिकार सुरक्षित।</p>
+    <p>
+        <a href="Privacy_policy_hindi.html">गोपनीयता नीति</a> | 
+        <a href="Terms_of_Service_Hindi.html">सेवा की शर्तें</a>
+    </p>
+</footer>
+
+</body>
+</html>

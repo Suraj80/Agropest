@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Pest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color:white;
+            padding: 8px;
+            text-decoration: none;
+            color:darkgreen;
+            border-radius: 20px;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+
+        /* Agro Pest description container */
+        .hero {
+            position: relative;
+            background-image: url('Images/Homebg1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero .content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero .content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero .content p {
+            font-size: 1.5rem;
+        }
+        @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+        .contai123 {
+      padding: 50px;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      animation: slideInRight 3s ease-out forwards;
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    @keyframes slideInRight {
+        0% {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .stat-item {
+      text-align: center;
+      color: #2c5f2d;
+      font-weight: bold;
+    }
+
+    .stat-item span {
+      font-size: 2rem;
+      display: block;
+    }
+
+    .image-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-section img {
+      max-width: 300px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+    }
+
+    .story-section {
+      flex: 2;
+      color: #333;
+
+    }
+
+    .story-section h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: slideInLeft 1.5s ease-out forwards;
+        opacity: 0;
+        transform: translateX(-50px);
+      
+    }
+    @keyframes slideInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .story-section p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .story-section button {
+      padding: 10px 20px;
+      background-color: #2c5f2d;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .H2{
+        background-color: #aaa; 
+        padding: 150px;
+    }
+  
+
+    .story-section button:hover {
+      background-color: #3b7f39;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2c5f2d;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .card button {
+            background: #008000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background: #006600;
+        }
+
+        @media (max-width: 768px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-section {
+            background: url('Images/Field.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .contact-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for better contrast */
+        }
+
+        .contact-form-container {
+            position: relative;
+            z-index: 1;
+            width: 80%;
+            max-width: 900px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .contact-form-container h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            grid-column: span 3;
+            resize: none;
+            height: 120px;
+        }
+
+        .contact-form button {
+            grid-column: span 3;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background: darkgreen;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: green;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-item {
+        flex: 1;
+        max-width: 200px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .footer-item h3 {
+      margin-bottom: 10px;
+        font-size: 18px;
+     text-transform: uppercase;
+    color: #fff;
+}
+
+.footer-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-item ul li {
+    margin: 8px 0;
+}
+
+.footer-item ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer-item ul li a:hover {
+    color: #4caf50; /* Highlight color on hover */
+    text-decoration: underline;
+}
+
+.social-icons a img {
+    filter: invert(1); /* Adjust icon color for dark backgrounds */
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.6);
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- शीर्ष नेविगेशन बार -->
+<div class="top-nav">
+    <a href="Login.html">एडमिन लॉगिन</a>
+</div>
+
+<!-- मुख्य नेविगेशन बार -->
+<div class="main-nav">
+    <div class="logo">एग्रो पेस्ट</div>
+    <div class="nav-links">
+        <a href="Index3.html">होम</a>
+        <div class="dropdown">
+            <a href="#">फसल समाधान</a>
+            <div class="dropdown-content">
+                <a href="Products.html">उत्पाद</a>
+                <a href="Crops.html">फसलें</a>
+            </div>
+        </div>
+        <a href="About_Hindi.html">हमारे बारे में</a>
+        <a href="Contact_Hindi.html">संपर्क करें</a>
+    </div>
+    <div class="language-dropdown">
+        <button>भाषा चुनें</button>
+        <div class="language-dropdown-content">
+            <a href="Index.html">अंग्रेज़ी</a>
+            <a href="Index2.html">कन्नड़</a>
+            <a href="Index3.html">हिंदी</a>
+        </div>
+    </div>
+</div>
+
+<!-- विवरण अनुभाग -->
+<div class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1 style="color:white">एग्रो पेस्ट</h1>
+        <p>सभी फसलों के लिए उपयोग होने वाला कीटनाशक, जो अधिकांश चूसने वाले कीड़ों को नियंत्रित करता है।</p>
+    </div>
+</div>
+<div class="H2">
+<!-- यह कहानी है -->
+<div class="contai123">
+    <div class="stats">
+      <div class="stat-item">
+        <span>6.5K</span>
+        वितरक
+      </div>
+      <div class="stat-item">
+        <span>75K</span>
+        खुदरा विक्रेता
+      </div>
+      <div class="stat-item">
+        <span>10M</span>
+        किसान
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img src="Images/Book.png" alt="पुस्तक छवि">
+    </div>
+
+    <div class="story-section">
+      <h1>हमारी कहानी</h1>
+      <p>
+        बागलकोट में नेत्रवती एग्रो केंद्र कृषि उत्पाद डीलरों में से एक प्रमुख व्यवसाय है। इसे उर्वरक डीलरों, कृषि उत्पाद डीलरों, कृषि रासायनिक डीलरों और बहुत कुछ के लिए जाना जाता है।
+      </p>
+      <p>
+        वर्ष 2012 में स्थापित, नेत्रवती एग्रो केंद्र बागलकोट में कृषि उत्पाद डीलरों की श्रेणी में शीर्ष खिलाड़ी है। यह प्रसिद्ध प्रतिष्ठान स्थानीय और अन्य क्षेत्रों के ग्राहकों की सेवा के लिए एक-स्टॉप समाधान है।
+      </p>
+      <p>
+        यह विश्वास कि ग्राहक संतुष्टि उनके उत्पादों और सेवाओं जितनी ही महत्वपूर्ण है, इस प्रतिष्ठान को एक विशाल ग्राहक आधार बनाने में मदद की है, जो दिन-प्रतिदिन बढ़ता जा रहा है।
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="back-to-top" id="backToTop">ऊपर</div>
+
+<!-- यह प्रदान किए गए समाधान हैं -->
+<div class="container">
+    <h1>हमारे समाधान</h1>
+    <div class="cards">
+        <div class="card">
+            <img src="Images/Herb1.png" alt="शाकनाशी">
+            <h3>शाकनाशी</h3>
+            <p>किसी भी रासायनिक पदार्थ द्वारा खरपतवार प्रबंधन जो इसे मारता है या इसकी वृद्धि को रोकता है।</p>
+            
+        </div>
+        <div class="card">
+            <img src="Images/Herb2.png" alt="फफूंदनाशक">
+            <h3>फफूंदनाशक</h3>
+            <p>फसल रोग पैदा करने वाले जीवाणु, फफूंदी और वायरस को नियंत्रित करने के लिए।</p>
+            
+        </div>
+        <div class="card">
+            <img src="Images/Herb3.png" alt="कीटनाशक">
+            <h3>कीटनाशक</h3>
+            <p>पौधों को नुकसान पहुंचाने वाले कीटों और अन्य जीवों को नियंत्रित करने के लिए।</p>
+            
+        </div>
+        <div class="card">
+            <img src="Images/Herb4.png" alt="पौध वृद्धि नियंत्रक">
+            <h3>पौध वृद्धि नियंत्रक</h3>
+            <p>आवश्यक पोषक तत्व प्रदान करके इष्टतम पौध वृद्धि सुनिश्चित करता है।</p>
+        
+        </div>
+    </div>
+</div>
+<div class="contact-section">
+    <div class="contact-overlay"></div>
+    <div class="contact-form-container">
+        <h2>हमसे संपर्क करें</h2>
+        <form class="contact-form" action="process.php" method="post">
+            <input type="text" placeholder="आपका नाम*" name="Name" required>
+            <input type="email" placeholder="ईमेल आईडी*" name="Email" required>
+            <input type="tel" placeholder="मोबाइल नंबर*" name="Phone" required>
+            <textarea placeholder="अपना संदेश यहाँ लिखें" required name="Message"></textarea>
+            <button type="submit">जमा करें</button>
+        </form>
+    </div>
+</div>
+<footer style="background-color: #333; color: #fff; padding: 40px 0;">
+    <div class="footer-container">
+        <div class="footer-item">
+            <h3>कंपनी</h3>
+            <ul>
+                <li><a href="About_Hindi.html" style="color: #fff;">हमारे बारे में</a></li>
+            </ul>
+        </div>
+        <div class="footer-item">
+            <h3>नीति जानकारी</h3>
+            <ul>
+                <li><a href="Privacy_policy_Hindi.html" style="color: #fff;">गोपनीयता नीति</a></li>
+                <li><a href="Terms_of_Service_Hindi.html" style="color: #fff;">सेवा की शर्तें</a></li>
+            </ul>
+        </div>
+        <div class="footer-item">
+            <h3>मदद</h3>
+            <ul>
+                <li><a href="FAQ_Hindi.HTML" style="color: #fff;">सामान्य प्रश्न</a></li>
+                <li><a href="Contact_Hindi.html" style="color: #fff;">हमसे संपर्क करें</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="social-icons" style="text-align: center; margin-top: 20px;">
+        <a href="#"><img src="Images/facebook.png" alt="फेसबुक" style="width: 24px; margin: 0 10px;"></a>
+        <a href="https://www.justdial.com/Bagalkot/Netravathi-Agro-And-Irrigation-Systems-Near-Railway-Station-Bagalkot-Station-Road/9999P8354-8354-180104153826-W2L5_BZDET"><img src="Images/JustDial+Logo.png" alt="जस्टडायल" style="width: 24px; margin: 0 10px;"></a>
+        <a href="#"><img src="Images/twitter.png" alt="ट्विटर" style="width: 24px; margin: 0 10px;"></a>
+    </div>
+    <div class="footer-bottom" style="text-align: center; margin-top: 20px; color: #aaa;">
+        <p>© 2025 कॉपीराइट: एग्रो पेस्ट</p>
+    </div>
+</footer>
+<script>
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>

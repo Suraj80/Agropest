@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Agro-Pests Solutions</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: rgb(1, 65, 1);
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px 10%;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1e774d;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #1e774d;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #555555;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1e774d;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .contact-info div strong {
+            color: #333333;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;``
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main navigation bar -->
+    <!-- Top navigation bar -->
+    <!-- शीर्ष नेविगेशन बार -->
+<div class="top-nav">
+    <a href="login.php">प्रशासन लॉगिन</a>
+</div>
+
+<!-- मुख्य नेविगेशन बार -->
+<div class="main-nav">
+    <div class="logo">एग्रो पेस्ट</div>
+    <div class="nav-links">
+        <a href="Index3.html">होम</a>
+        <div class="dropdown">
+            <a href="#">फसल समाधान</a>
+            <div class="dropdown-content">
+                <a href="Products.html">उत्पाद</a>
+                <a href="Crops.html">फसलें</a>
+            </div>
+        </div>
+        <a href="About_Hindi.html">हमारे बारे में</a>
+        <a href="Contact_Hindi.html">संपर्क करें</a>
+    </div>
+    <div class="language-dropdown">
+        <button>भाषा चुनें</button>
+        <div class="language-dropdown-content">
+            <a href="Contact.html">अंग्रेजी</a>
+            <a href="Contact_Kannada.html">कन्नड़</a>
+            <a href="Contact_Hindi.html">हिंदी</a>
+        </div>
+    </div>
+</div>
+
+<!-- मुख्य सामग्री -->
+<div class="container">
+    <h2>हमसे संपर्क करें</h2>
+    <h3>हमसे जुड़ें</h3>
+    <p>हमारी टीम हमेशा आपकी सहायता के लिए तैयार है। हमें एक संदेश भेजें और हमारी टीम का कोई सदस्य आपसे संपर्क करेगा। फॉर्म छोड़ना चाहते हैं? सीधे हमसे संपर्क करने के लिए निम्नलिखित लिंक का उपयोग करें।</p>
+
+    <div class="contact-info">
+        <div>
+            <div class="icon">📍</div>
+            <div>
+                <strong>हमारा स्थान</strong>
+                <p>मेलिगेरी टावर्स, मेन रोड,</p>
+                <p>स्टेशन रोड, बागलकोट - 587101</p>
+            </div>
+        </div>
+        <div>
+            <div class="icon">📞</div>
+            <div>
+                <strong>फोन नंबर</strong>
+                <p>+917947425804</p>
+            </div>
+        </div>
+        <div>
+            <div class="icon">📧</div>
+            <div>
+                <strong>ईमेल पता</strong>
+                <p>support@agropests.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>© 2024 एग्रो पेस्ट। सर्वाधिकार सुरक्षित।</p>
+    <p>
+        <a href="Privacy_policy_Hindi.html">गोपनीयता नीति</a> | 
+        <a href="Terms_of_Service_Hindi.html">सेवा की शर्तें</a>
+    </p>
+</footer>
+
+</body>
+</html>

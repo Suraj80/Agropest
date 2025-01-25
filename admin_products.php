@@ -22,24 +22,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quantity = $_POST['quantity'];
 
     // Handle image upload
-    if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
         // Get binary content of the uploaded image
         $photo = file_get_contents($_FILES['photo']['tmp_name']);
     } else {
-        $error = "Error: Please upload an image.";
+        $error = "Error: Please upload a valid image.";
     }
 
     // Proceed if no errors in the upload
     if (empty($error)) {
         // Prepare the SQL query
-        $query = "INSERT INTO products (image, Name, Price, Quantity, Description) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO products (Image, Name, Price, Quantity, Description) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         if (!$stmt) {
             die("Prepare failed: " . $conn->error);
         }
 
-        // Bind parameters (b = blob, s = string, i = integer)
-        $stmt->bind_param('bsiss', $photo, $name, $price, $quantity, $description);
+        // Bind parameters and send the image data
+        $stmt->bind_param('ssdis', $photo, $name, $price, $quantity, $description);
+        $stmt->send_long_data(0, $photo);
 
         // Execute the query
         if ($stmt->execute()) {
@@ -73,104 +74,53 @@ $conn->close();
             padding: 0;
             display: flex;
         }
-
         .sidebar {
             height: 100vh;
             width: 250px;
             background-color: #2c3e50;
             color: white;
             position: fixed;
-            display: flex;
-            flex-direction: column;
             padding-top: 20px;
         }
-
         .sidebar h1 {
             text-align: center;
-            margin: 0;
             font-size: 20px;
             padding: 15px 0;
             border-bottom: 1px solid #34495e;
         }
-
         .sidebar a {
             text-decoration: none;
             color: white;
             padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s ease;
+            display: block;
         }
-
         .sidebar a:hover {
             background-color: #34495e;
         }
-
-        .sidebar img {
-            margin-right: 10px;
-            width: 20px;
-            height: 20px;
-        }
-
         .logout {
-            margin-top: 10px;
+            margin-top: 20px;
             padding: 15px 20px;
             background-color: #e74c3c;
             color: white;
             text-align: center;
             cursor: pointer;
         }
-
-        .logout:hover {
-            background-color: #c0392b;
-        }
-
         .main-content {
             margin-left: 250px;
             padding: 20px;
             width: 100%;
         }
-
-        .navbar {
-            background-color: #333;
-            color: white;
-            overflow: hidden;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
-        }
-
-        .navbar-title {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .navbar-links a {
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            margin-left: 10px;
-        }
-
-        .navbar-links a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
         .form-container {
-            margin-top: 20px;
+            max-width: 500px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            max-width: 500px;
+            background-color: #f9f9f9;
         }
-
         label {
             display: block;
             margin-bottom: 8px;
         }
-
         input, textarea {
             width: 100%;
             padding: 8px;
@@ -178,25 +128,17 @@ $conn->close();
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-
         button {
             background-color: #28a745;
             color: white;
             padding: 10px 15px;
             border: none;
             border-radius: 4px;
-            cursor: pointer;
         }
-
-        button:hover {
-            background-color: #218838;
-        }
-
         .error {
             color: red;
             margin-bottom: 10px;
         }
-
         .success {
             color: green;
             margin-bottom: 10px;
@@ -206,33 +148,21 @@ $conn->close();
 <body>
     <div class="sidebar">
         <h1>Agropest</h1>
-        <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
-        <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
-        <a href="user_info.html"><img src="Images/user.png" alt="User Icon">CRM</a>
+        <a href="Admin_dashboard.html">Dashboard</a>
+        <a href="admin_products.php">Products</a>
+        <a href="user_info.html">CRM</a>
         <div class="logout">Logout</div>
     </div>
-
     <div class="main-content">
-        <div class="navbar">
-            <div class="navbar-title">Products Dashboard</div>
-            <div class="navbar-links">
-                <a href="admin_products.php">Add Product</a>
-                <a href="update_products.php">Update Product</a>
-                <a href="delete_products.php">Delete Product</a>
-            </div>
-        </div>
-
         <h1>Admin - Manage Products</h1>
         <p>Total Products Listed: <strong><?php echo $productCount; ?></strong></p>
-
         <div class="form-container">
             <h2>Add a New Product</h2>
             <?php if (!empty($error)): ?>
-                <p class="error"><?php echo $error; ?></p>
+                <p class="error"> <?php echo $error; ?> </p>
             <?php elseif (!empty($success)): ?>
-                <p class="success"><?php echo $success; ?></p>
+                <p class="success"> <?php echo $success; ?> </p>
             <?php endif; ?>
-
             <form action="admin_products.php" method="post" enctype="multipart/form-data">
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -255,4 +185,3 @@ $conn->close();
     </div>
 </body>
 </html>
-                

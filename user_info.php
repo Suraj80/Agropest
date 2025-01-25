@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch contact form data
-$sql = "SELECT name, email, phone, message FROM contact_us";
+$sql = "SELECT Name, Email, Phone, Message FROM contact";
 $result = $conn->query($sql);
 ?>
 
@@ -209,10 +209,10 @@ $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>
-                                    <td>" . htmlspecialchars($row['name']) . "</td>
-                                    <td>" . htmlspecialchars($row['email']) . "</td>
-                                    <td>" . htmlspecialchars($row['phone']) . "</td>
-                                    <td>" . htmlspecialchars($row['message']) . "</td>
+                                    <td>" . htmlspecialchars($row['Name']) . "</td>
+                                    <td>" . htmlspecialchars($row['Email']) . "</td>
+                                    <td>" . htmlspecialchars($row['Phone']) . "</td>
+                                    <td>" . htmlspecialchars($row['Message']) . "</td>
                                   </tr>";
                         }
                     } else {

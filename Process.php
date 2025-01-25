@@ -26,11 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Insert data into the contact_us table
-    $sql = "INSERT INTO contact_us (name, email, phone, message) VALUES ('$name', '$email', '$phone', '$message')";
+    // Insert data into the contact table
+    $sql = "INSERT INTO contact (name, email, phone, message) VALUES ('$name', '$email', '$phone', '$message')";
 
     if ($conn->query($sql) === TRUE) {
-        header("Index.html");
+        // Redirect to index.html on successful insertion
+        header("Location: index.html");
         exit;
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Agro-Pests Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, p {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-weight: 400; /* Normal text weight */
+        }
+        h1, h2 {
+            font-weight: 700; /* Bold for headings */
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color:white;
+            padding: 8px;
+            text-decoration: none;
+            color:darkgreen;
+            border-radius: 20px;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: darkgreen;
+            color: white;
+            padding: 20px 10%;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 10%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #1e774d;
+            font-size: 1.75rem;
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            margin: 10px 0 20px 20px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background-color: #1e774d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        a {
+            color: #1e774d;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- ಮೇಲ್ಭಾಗದ ನಾವಿಗೇಶನ್ ಬಾರ್ -->
+    <div class="top-nav">
+        <a href="Login.html">ನಿರ್ವಾಹಕ ಲಾಗಿನ್</a>
+    </div>
+    
+    <!-- ಮುಖ್ಯ ನ್ಯಾವಿಗೇಷನ್ ಬಾರ್ -->
+    <div class="main-nav">
+        <div class="logo">ಆಗ್ರೋ ಪೆಸ್ಟ್</div>
+        <div class="nav-links">
+            <a href="Index2.html">ಮುಖಪುಟ</a>
+            <div class="dropdown">
+                <a href="#">ಬೆಳೆ ಪರಿಹಾರಗಳು</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">ಉತ್ಪನ್ನಗಳು</a>
+                    <a href="Crops.html">ಬೆಳೆಗಳು</a>
+                </div>
+            </div>
+            <a href="About_Kannada.html">ನಮ್ಮ ಬಗ್ಗೆ</a>
+            <a href="Contact_Kannada.html">ಸಂಪರ್ಕ</a>
+        </div>
+        <div class="language-dropdown">
+            <button>ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ</button>
+            <div class="language-dropdown-content">
+                <a href="Index.html">ಇಂಗ್ಲಿಷ್</a>
+                <a href="Home2.html">ಕನ್ನಡ</a>
+                <a href="Home3.html">ಹಿಂದಿ</a>
+            </div>
+        </div>
+    </div>
+
+<header>
+    <h1>ಗೋಪ್ಯತಾ ನೀತಿ</h1>
+    <p>ಅಂತಿಮ ನವೀಕರಣ: ಜನವರಿ 23, 2025</p>
+</header>
+
+<div class="container">
+    <h2>ಪರಿಚಯ</h2>
+    <p>ಈಗೋಪ್ಯತಾ ನೀತಿಯಲ್ಲಿ, ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ ಬಳಸಿದಾಗ ಅಥವಾ ಸಂವಾದ ಮಾಡಿದಾಗ, ಅಗ್ರೋ-ಪೆಸ್ಟ್ಸ್ ಸೊಲ್ಯೂಷನ್‌ಗಳು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಹೇಗೆ ಸಂಗ್ರಹಿಸುತ್ತದೆ, ಬಳಸುತ್ತದೆ, ಮತ್ತು ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತದೆ ಎಂಬುದನ್ನು ವಿವರಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಗೌಪ್ಯತೆಯನ್ನು ಗೌರವಿಸುತ್ತೇವೆ ಮತ್ತು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ರಕ್ಷಿಸಲು ಬದ್ಧರಾಗಿದ್ದೇವೆ.</p>
+
+    <h2>ನಾವು ಸಂಗ್ರಹಿಸುವ ಮಾಹಿತಿ</h2>
+    <p>ಅಗ್ರೋ-ಪೆಸ್ಟ್ಸ್ ಸೊಲ್ಯೂಷನ್‌ಗಳು ಗ್ರಾಹಕರ ಲಾಗಿನ್ ಅಗತ್ಯವಿಲ್ಲ, ಮತ್ತು ನಾವು ತೊಂದರೆರಹಿತ ಬ್ರೌಸಿಂಗ್ ಅನುಭವವನ್ನು ನೀಡಲು ಕನಿಷ್ಠ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ. ನಾವು ಸಂಗ್ರಹಿಸಬಹುದಾದ ಮಾಹಿತಿಯ ಪ್ರಕಾರಗಳು:</p>
+    <ul>
+        <li>ಬ್ರೌಸರ್ ಪ್ರಕಾರ ಮತ್ತು ಸಾಧನ ಮಾಹಿತಿ</li>
+        <li>ಅನಾಲಿಟಿಕ್ಸ್ ಮತ್ತು ಬಳಕೆದಾರ ಅನುಭವ ಸುಧಾರಣೆಗೆ IP ವಿಳಾಸ</li>
+        <li>ವೆಬ್‌ಸೈಟ್ ಕಾರ್ಯಾಚರಣೆಗಾಗಿ ಕುಕೀಸ್</li>
+    </ul>
+
+    <h2>ನಿಮ್ಮ ಮಾಹಿತಿಯನ್ನು ನಾವು ಹೇಗೆ ಬಳಸುತ್ತೇವೆ</h2>
+    <p>ನಾವು ಸಂಗ್ರಹಿಸುವ ಡೇಟಾವನ್ನು ಈ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ:</p>
+    <ul>
+        <li>ವೆಬ್‌ಸೈಟ್ ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ಬಳಕೆದಾರ ಅನುಭವವನ್ನು ಸುಧಾರಿಸಲು</li>
+        <li>ವೆಬ್‌ಸೈಟ್ ಸಂಚಾರ ಮತ್ತು ಬಳಕೆದಾರ ಆದ್ಯತೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು</li>
+        <li>ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ ಸುರಕ್ಷತೆ ಮತ್ತು ಕಾರ್ಯಚಟುವಟಿಕೆಯನ್ನು ಖಚಿತಪಡಿಸಲು</li>
+    </ul>
+
+    <h2>ಕುಕೀಸ್ ಮತ್ತು ಟ್ರಾಕಿಂಗ್ ತಂತ್ರಜ್ಞಾನಗಳು</h2>
+    <p>ನಾವು ನಿಮ್ಮ ಬ್ರೌಸಿಂಗ್ ಅನುಭವವನ್ನು ಸುಧಾರಿಸಲು ಕುಕೀಸ್ ಅನ್ನು ಬಳಸುತ್ತೇವೆ. ಈ ಕುಕೀಸ್ ನಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಸಂಚಾರವನ್ನು ವಿಶ್ಲೇಷಿಸಲು ಮತ್ತು ಬಳಕೆದಾರರು ನಮ್ಮ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ನೊಂದಿಗೆ ಹೇಗೆ ಸಂವಹನ ಮಾಡುತ್ತಾರೆ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನೀವು ನಿಮ್ಮ ಬ್ರೌಸರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಮೂಲಕ ಕುಕೀಸ್ ಅನ್ನು ನಿಯಂತ್ರಿಸಬಹುದು.</p>
+
+    <h2>ಡೇಟಾ ಹಂಚಿಕೆ ಮತ್ತು ಭದ್ರತೆ</h2>
+    <p>ನಾವು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ಮೂರನೇ ಪಕ್ಷಗಳಿಗೆ ಮಾರಾಟ, ಬಾಡಿಗೆ, ಅಥವಾ ಹಂಚಿಕೆ ಮಾಡುವುದಿಲ್ಲ, ಆದರೆ ಕಾನೂನು ಬದ್ಧವಾದ ಸಂದರ್ಭದಲ್ಲಿ ಮಾತ್ರ ಹಂಚಿಕೆ ಮಾಡಬಹುದು. ನಿಮ್ಮ ಡೇಟಾದ ಭದ್ರತೆಯನ್ನು ಖಚಿತಪಡಿಸಲು ನಾವು ಯೋಗ್ಯ ಕ್ರಮಗಳನ್ನು ಕೈಗೊಳ್ಳುತ್ತೇವೆ. ಆದಾಗ್ಯೂ, ಯಾವುದೇ ವ್ಯವಸ್ಥೆ ಸಂಪೂರ್ಣವಾಗಿ ಸುರಕ್ಷಿತವಲ್ಲ, ಮತ್ತು ಡೇಟಾದ ಸಂಪೂರ್ಣ ರಕ್ಷಣೆ ಗ್ಯಾರಂಟಿ ಕೊಡಲು ಸಾಧ್ಯವಿಲ್ಲ.</p>
+
+    <h2>ಮೂರನೇ ಪಕ್ಷದ ಲಿಂಕುಗಳು</h2>
+    <p>ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿಗಾಗಿ ಮೂರನೇ ಪಕ್ಷದ ವೆಬ್‌ಸೈಟ್‌ಗಳ ಲಿಂಕುಗಳು ಇರಬಹುದು. ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಈ ಹೊರಗಿನ ಸೈಟ್‌ಗಳ ಗೌಪ್ಯತಾ ಅಭ್ಯಾಸಗಳಿಗೆ ನಾವು ಜವಾಬ್ದಾರರಲ್ಲ.</p>
+
+    <h2>ಈಗೋಪ್ಯತಾ ನೀತಿಯಲ್ಲಿ ಬದಲಾವಣೆಗಳು</h2>
+    <p>ನಾವು ಈಗೋಪ್ಯತಾ ನೀತಿಯನ್ನು ಕಾಲಾನುಕಾಲವಾಗಿ ನವೀಕರಿಸಬಹುದು. ಯಾವುದೇ ಬದಲಾವಣೆಗಳನ್ನು ಈ ಪುಟದಲ್ಲಿ ನವೀಕರಿಸಿದ ದಿನಾಂಕದೊಂದಿಗೆ ಪೋಸ್ಟ್ ಮಾಡಲಾಗುತ್ತದೆ. ನಿಮ್ಮ ಮಾಹಿತಿಯನ್ನು ನಾವು ಹೇಗೆ ರಕ್ಷಿಸುತ್ತೇವೆ ಎಂಬುದರ ಬಗ್ಗೆ ಮಾಹಿತಿ ಪಡೆಯಲು ಈಗೋಪ್ಯತಾ ನೀತಿಯನ್ನು ಸಮಯಪೂರ್ತಿಯಾಗಿ ಪರಿಶೀಲಿಸಲು ನಾವು ನಿಮಗೆ ಪ್ರೋತ್ಸಾಹಿಸುತ್ತೇವೆ.</p>
+
+    <h2>ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h2>
+    <p>ಈಗೋಪ್ಯತಾ ನೀತಿಯ ಬಗ್ಗೆ ನೀವು ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳು ಅಥವಾ ಚಿಂತೆಗಳಿದ್ದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ:</p>
+    <p><strong>ಇಮೇಲ್:</strong> [ಇಮೇಲ್ ವಿಳಾಸ ಇಲ್ಲಿ ಸೇರಿಸಿ]</p>
+    <p><strong>ಫೋನ್:</strong> 7760695701 / 7348848406</p>
+    <p><strong>ವಿಳಾಸ:</strong> ಮೆಲ್ಲಿಗೇರಿ ಟವರ್ಸ್, ಮುಖ್ಯ ರಸ್ತೆ, ಸ್ಟೇಷನ್ ರಸ್ತೆ, ಬಾಗಲಕೋಟೆ - 587101</p>
+</div>
+
+<footer>
+    <p>&copy; 2025 ಅಗ್ರೋ-ಪೆಸ್ಟ್ಸ್ ಸೊಲ್ಯೂಷನ್‌ಗಳು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಸಂರಕ್ಷಿಸಲಾಗಿದೆ.</p>
+</footer>
+
+</body>
+</html>
