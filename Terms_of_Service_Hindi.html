@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Agro-Pests Solutions</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, p {
+            font-weight: 400; /* Normal text weight */
+        }
+        h1, h2 {
+            font-weight: 700; /* Bold for headings */
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color:white;
+            padding: 8px;
+            text-decoration: none;
+            color:darkgreen;
+            border-radius: 20px;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #H1 {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #28a745;
+        }
+
+        #H1 img {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 20px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        li a:hover {
+            color: #28a745;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1e774d;
+            color: white;
+            padding: 20px 10%;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 10%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2, h3 {
+            color: #1e774d;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            margin: 10px 0 20px 20px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background-color: #1e774d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        a {
+            color: #1e774d;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .sub-section {
+            margin-left: 20px;
+        }
+        </style>
+</head>
+<body>
+   <!-- शीर्ष नेविगेशन बार -->
+<div class="top-nav">
+    <a href="Login.php">एडमिन लॉगिन</a>
+</div>
+
+<!-- मुख्य नेविगेशन बार -->
+<div class="main-nav">
+    <div class="logo">एग्रो पेस्ट</div>
+    <div class="nav-links">
+        <a href="Index3.html">होम</a>
+        <div class="dropdown">
+            <a href="#">फसल समाधान</a>
+            <div class="dropdown-content">
+                <a href="Products.html">उत्पाद</a>
+                <a href="Crops.html">फसलें</a>
+            </div>
+        </div>
+        <a href="About_Hindi.html">हमारे बारे में</a>
+        <a href="Contact_Hindi.html">संपर्क करें</a>
+    </div>
+    <div class="language-dropdown">
+        <button>भाषा चुनें</button>
+        <div class="language-dropdown-content">
+            <a href="Terms_of_Service.html">अंग्रेजी</a>
+            <a href="Terms_of_Service_Kannada.html">कन्नड़</a>
+            <a href="Terms_of_Service_Hindi.html">हिंदी</a>
+        </div>
+    </div>
+</div>
+<header>
+    <h1>सेवा की शर्तें</h1>
+    <p>अंतिम अपडेट: 23 जनवरी, 2025</p>
+</header>
+
+<div class="container">
+    <h2>सेवा की शर्तें</h2>
+    <h3>1. परिचय</h3>
+    <div class="sub-section">
+       <p>Agro Pest वेबसाइट में आपका स्वागत है, जिसे विशेष रूप से Netravathi Agro Kendra के लिए विकसित किया गया है। हमारे प्लेटफ़ॉर्म का उपयोग करके, आप इन सेवा की शर्तों का पालन करने और बाध्य होते हैं। कृपया उपयोग से पहले इन्हें ध्यानपूर्वक पढ़ें। यदि आप इन शर्तों के किसी भाग से सहमत नहीं हैं, तो कृपया प्लेटफ़ॉर्म का उपयोग न करें।</p>
+    </div>
+
+    <h3>2. वेबसाइट का उपयोग</h3>
+    <div class="sub-section">
+        <p><strong>योग्यता:</strong> इस वेबसाइट का उपयोग करने के लिए आपकी आयु कम से कम 18 वर्ष होनी चाहिए।</p>
+        <p><strong>उद्देश्य:</strong> Agro Pest वेबसाइट किसानों और कृषि हितधारकों की आवश्यकताओं के अनुसार कीटनाशक, कीट प्रबंधन और फसल संरक्षण के बारे में जानकारी प्रदान करने के लिए बनाई गई है।</p>
+        <p><strong>उपयोगकर्ता की जिम्मेदारी:</strong> उपयोगकर्ता यह सुनिश्चित करने के लिए जिम्मेदार हैं कि इस वेबसाइट पर दी गई जानकारी का उपयोग प्रासंगिक कानूनों और विनियमों के अनुसार हो।</p>
+    </div>
+
+    <h3>3. बौद्धिक संपत्ति</h3>
+    <div class="sub-section">
+        <p>इस वेबसाइट पर सभी सामग्री, जैसे पाठ, छवियां, वीडियो और सॉफ़्टवेयर, Agro Pest और Netravathi Agro Kendra या उनके लाइसेंसधारकों की संपत्ति है। इस सामग्री का अनधिकृत उपयोग, पुनरुत्पादन या वितरण सख्त वर्जित है।</p>
+    </div>
+
+    <h3>4. दायित्व की सीमा</h3>
+    <div class="sub-section">
+        <ul>
+            <li>Agro Pest और Netravathi Agro Kendra कीटनाशक, कीट नियंत्रण और फसल प्रबंधन की जानकारी प्रदान करते हैं। हालांकि:
+                <ul>
+                    <li>हम सूचनाओं की पूर्ण सटीकता या विश्वसनीयता की गारंटी नहीं देते।</li>
+                    <li>उपयोगकर्ताओं को कीटनाशक नियंत्रण उपाय लागू करते समय सावधानी बरतनी चाहिए और पेशेवर सलाह लेनी चाहिए।</li>
+                    <li>वेबसाइट और उसके मालिक प्लेटफ़ॉर्म के उपयोग से होने वाले किसी भी प्रत्यक्ष या अप्रत्यक्ष नुकसान के लिए उत्तरदायी नहीं हैं।</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h3>5. प्रबंधनीय कानून</h3>
+    <div class="sub-section">
+        <p>इन सेवा की शर्तों को भारतीय कानूनों द्वारा प्रबंधित किया जाता है। इन शर्तों के अंतर्गत उत्पन्न किसी भी विवाद का समाधान Bagalkot, कर्नाटक के न्यायालयों के विशेष अधिकार क्षेत्र के अंतर्गत किया जाएगा।</p>
+    </div>
+
+    <h3>6. संपर्क जानकारी</h3>
+    <div class="sub-section">
+        <p>यदि आपके पास इन सेवा की शर्तों के बारे में कोई प्रश्न या चिंता है, तो आप हमसे संपर्क कर सकते हैं:</p>
+        <p><strong>पता:</strong> Melligeri Towers, Main Road, Station Road, Bagalkot - 587101</p>
+        <p><strong>फ़ोन:</strong> 7760695701 / 7348848406</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Agro Pest Solutions और Netravathi Agro Kendra. सभी अधिकार सुरक्षित हैं।</p>
+</footer>
+
+</body>
+</html>

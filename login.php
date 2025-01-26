@@ -160,7 +160,7 @@ $conn->close();
             <button type="submit">Login</button>
         </form>
         <div class="options">
-            <a href="Forgot.html">Forgot Password?</a>
+            <a href="Forgot_password.php">Forgot Password?</a>
         </div>
         <?php if (isset($error_message)): ?>
             <div class="error"> <?php echo $error_message; ?> </div>

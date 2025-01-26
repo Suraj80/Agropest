@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Pest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, p {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-weight: 400; /* Normal text weight */
+        }
+        h1, h2 {
+            font-weight: 700; /* Bold for headings */
+        }
+
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px 20px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: white;
+            padding: 8px;
+            text-decoration: none;
+            color: darkgreen;
+            border-radius: 20px;
+        }
+
+        .main-nav {
+            background-color: rgb(231, 231, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            color: darkgreen;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    min-width: 120px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.language-dropdown-content a {
+    color: darkgreen;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.language-dropdown-content a:hover {
+    background-color: lightgray;
+}
+
+.language-dropdown:hover .language-dropdown-content {
+    display: block;
+}
+
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            max-width: 300px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            color: #4CAF50;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .blog-container {
+            flex: 3;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .blog-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: calc(33.333% - 20px);
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-card h2, .blog-card p {
+            margin: 15px;
+        }
+
+        .read-more {
+            display: block;
+            text-align: center;
+            margin: 10px 15px 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="Login.php">ನಿರ್ವಾಹಕ ಲಾಗಿನ್</a>
+    </div>
+    
+    <div class="main-nav">
+        <div class="logo">ಅಗ್ರೋ ಪೆಸ್ಟ್</div>
+        <div class="nav-links">
+            <a href="Index.html">ಮುಖಪುಟ</a>
+            <div class="dropdown">
+                <a href="#">ಬೆಳೆ ಪರಿಹಾರಗಳು</a>
+                <div class="dropdown-content">
+                    <a href="Products.html">ಉತ್ಪನ್ನಗಳು</a>
+                    <a href="Crops.html">ಬೆಳೆಗಳು</a>
+                </div>
+            </div>
+            <a href="About.html">ನಮ್ಮ ಬಗ್ಗೆ</a>
+            <a href="Contact.html">ಸಂಪರ್ಕ</a>
+        </div>
+        <div class="language-dropdown">
+            <button>ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ</button>
+            <div class="language-dropdown-content">
+                <a href="Crops.html">ಇಂಗ್ಲಿಷ್</a>
+                <a href="Crops_kannada.html">ಕನ್ನಡ</a>
+                <a href="Crops_Hindi.html">ಹಿಂದಿ</a>
+            </div>  
+        </div>
+    </div>
+    
+    <main class="main-content">
+        <aside class="sidebar">
+            <h3>ಬ್ಲಾಗ್ ಶೀರ್ಷಿಕೆಗಳು</h3>
+            <ul>
+                <li><a href="Crop1.html">ನಿಮ್ಮ ಅಕ್ಟೋಬರ್ ಬೆಳೆ ರಕ್ಷಿಸಿ</a></li>
+                <li><a href="Crop2.html">ಆಧುನಿಕ ಕೃಷಿ ಪರಿಹಾರಗಳು</a></li>
+                <li><a href="Crop3.html">ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</a></li>
+                <li><a href="Crop4.html">ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</a></li>
+                <li><a href="Crop5.html">ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</a></li>
+                <li><a href="Crop6.html">ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</a></li>
+            </ul>
+        </aside>
+    
+        <section class="blog-container">
+            <article class="blog-card">
+                <img src="images/Homebg2.jpg" alt="ಉತ್ಪನ್ನ 1">
+                <h2>ನಿಮ್ಮ ಅಕ್ಟೋಬರ್ ಬೆಳೆ ರಕ್ಷಿಸಿ</h2>
+                <p>ಗೋಧಿ ಮತ್ತು ಭತ್ತದ ಬೆಳೆಗಳಿಗಾಗಿ ಶಿಲೀಂಧ್ರನಾಶಕ ತಂತ್ರಗಳು</p>
+                <a href="Crop1.html" class="read-more">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/Blog2.jpg" alt="ಉತ್ಪನ್ನ 2">
+                <h2>ಆಧುನಿಕ ಕೃಷಿ ಪರಿಹಾರಗಳು</h2>
+                <p>ಈ ಋತುವಿನಲ್ಲಿ ನಿಮ್ಮ ಬೆಳೆಗಳನ್ನು ರಕ್ಷಿಸಲು ಆಧುನಿಕ ಕೃಷಿ ಪರಿಹಾರಗಳ ಅನ್ವಯ</p>
+                <a href="Crop2.html" class="read-more">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="ಉತ್ಪನ್ನ 3">
+                <h2>ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</h2>
+                <p>ಇದು ಉತ್ಪನ್ನ 3ರ ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ. ಪರಿಸರ ಸ್ನೇಹಿ ಮತ್ತು ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿಯಾಗಿದೆ.</p>
+                <a href="Crop3.html" class="read-more">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="ಉತ್ಪನ್ನ 3">
+                <h2>ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</h2>
+                <p>ಇದು ಉತ್ಪನ್ನ 3ರ ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ. ಪರಿಸರ ಸ್ನೇಹಿ ಮತ್ತು ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿಯಾಗಿದೆ.</p>
+                <a href="Crop4.html" class="read-more">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="ಉತ್ಪನ್ನ 3">
+                <h2>ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</h2>
+                <p>ಇದು ಉತ್ಪನ್ನ 3ರ ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ. ಪರಿಸರ ಸ್ನೇಹಿ ಮತ್ತು ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿಯಾಗಿದೆ.</p>
+                <a href="Crop5.html" class="read-more">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ</a>
+            </article>
+            <article class="blog-card">
+                <img src="images/product3.jpg" alt="ಉತ್ಪನ್ನ 3">
+                <h2>ಉತ್ಪನ್ನ ಶೀರ್ಷಿಕೆ 3</h2>
+                <p>ಇದು ಉತ್ಪನ್ನ 3ರ ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ. ಪರಿಸರ ಸ್ನೇಹಿ ಮತ್ತು ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿಯಾಗಿದೆ.</p>
+                <a href="#" class="read-more">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ</a>
+            </article>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2024 ಅಗ್ರೋ ಪೆಸ್ಟ್. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.</p>
+    </footer>
+    
+</body>
+</html>
+
