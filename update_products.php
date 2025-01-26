@@ -1,4 +1,13 @@
 <?php
+
+
+// Check if username is "admin" and logg_in is true
+if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
+    // Redirect to login page if the conditions are not met
+    header("Location: login.php");
+    exit();
+}
+
 // Database connection
 $servername = "localhost";
 $username = "root";

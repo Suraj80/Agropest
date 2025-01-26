@@ -33,7 +33,7 @@
 
         /* Main navigation bar */
         .main-nav {
-            background-color: lightgreen;
+            background-color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -202,12 +202,88 @@
             color: white;
             text-decoration: none;
         }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0a9d3f;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .section-title {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .main-image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            cursor: pointer;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
     <!-- Top navigation bar -->
     <div class="top-nav">
-        <a href="#">Admin Login</a>
+        <a href="Login.php">Admin Login</a>
     </div>
 
     <!-- Main navigation bar -->
@@ -242,7 +318,7 @@
 
     <main>
         <section class="blog-image">
-            <img src="Homebg1.jpg" alt="Farmer applying fungicide in a field">
+            <img src="Images/Soyabean.png" alt="Farmer applying fungicide in a field">
         </section>
 
         <section class="blog-content">
@@ -257,6 +333,78 @@
             </p>
         </section>
     </main>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50%">Pests Or Diseases</th>
+                    <th style="width: 50%">Recommended Product Solutions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Weeds Section -->
+                <tr>
+                    <td>
+                        <h2 class="section-title">Weeds</h2>
+                        <div class="main-image-container">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Weeds Main" class="main-image" id="weeds-main">
+                        </div>
+                        <div class="thumbnails">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Weeds Thumbnail 1" class="thumbnail" onclick="changeImage(this, 'weeds-main')">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Weeds Thumbnail 2" class="thumbnail" onclick="changeImage(this, 'weeds-main')">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Weeds Thumbnail 3" class="thumbnail" onclick="changeImage(this, 'weeds-main')">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="products">
+                            <img src="/placeholder.svg" alt="Product 1" class="product-image">
+                            <img src="/placeholder.svg" alt="Product 2" class="product-image">
+                            <img src="/placeholder.svg" alt="Product 3" class="product-image">
+                            <img src="/placeholder.svg" alt="Product 4" class="product-image">
+                        </div>
+                    </td>
+                </tr>
+                <!-- Better Crop Health Section -->
+                <tr>
+                    <td>
+                        <h2 class="section-title">Better Crop Health And Yield</h2>
+                        <div class="main-image-container">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Main" class="main-image" id="crop-main">
+                        </div>
+                        <div class="thumbnails">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Thumbnail 1" class="thumbnail" onclick="changeImage(this, 'crop-main')">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Thumbnail 2" class="thumbnail" onclick="changeImage(this, 'crop-main')">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Thumbnail 3" class="thumbnail" onclick="changeImage(this, 'crop-main')">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="products">
+                            <img src="/placeholder.svg" alt="Product 1" class="product-image">
+                            <img src="/placeholder.svg" alt="Product 2" class="product-image">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function changeImage(thumbnail, mainImageId) {
+            const mainImage = document.getElementById(mainImageId);
+            mainImage.src = thumbnail.src;
+        }
+
+        // Optional: Add hover effect for thumbnails
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('mouseover', function() {
+                this.style.opacity = '0.8';
+            });
+            thumb.addEventListener('mouseout', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
 
     <aside class="popular">
         <h2>Popular on Dhanuka</h2>

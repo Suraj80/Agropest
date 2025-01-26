@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result->num_rows > 0) {
         // Login successful, redirect to admin dashboard
-        header("Location: admin_dashboard.html");
+        header("Location: admin_dashboard.php");
         exit();
     } else {
         $error_message = "Invalid username or password.";

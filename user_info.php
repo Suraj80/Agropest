@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+// Check if username is "admin" and logg_in is true
+if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
+    // Redirect to login page if the conditions are not met
+    header("Location: login.php");
+    exit();
+}
+
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -175,7 +184,7 @@ $result = $conn->query($sql);
 <body>
     <div class="sidebar">
         <h1>Agropest</h1>
-        <a href="dashboard.php"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
+        <a href="Admin_dashboard.php"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
         <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
         <a href="user_info.html"><img src="Images/user.png" alt="User Icon">CRM</a>
         <div class="logout">Logout</div>

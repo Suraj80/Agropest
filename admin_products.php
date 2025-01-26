@@ -1,4 +1,16 @@
+
 <?php
+// Start session
+session_start();
+
+
+
+// Check if username is "admin" and logg_in is true
+if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
+    // Redirect to login page if the conditions are not met
+    header("Location: login.php");
+    exit();
+}
 
 // Enable error reporting for debugging
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -148,9 +160,9 @@ $conn->close();
 <body>
     <div class="sidebar">
         <h1>Agropest</h1>
-        <a href="Admin_dashboard.html">Dashboard</a>
+        <a href="Admin_dashboard.php">Dashboard</a>
         <a href="admin_products.php">Products</a>
-        <a href="user_info.html">CRM</a>
+        <a href="user_info.php">CRM</a>
         <div class="logout">Logout</div>
     </div>
     <div class="main-content">
