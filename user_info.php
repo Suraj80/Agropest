@@ -186,20 +186,13 @@ $result = $conn->query($sql);
         <h1>Agropest</h1>
         <a href="Admin_dashboard.php"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
         <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
-        <a href="user_info.html"><img src="Images/user.png" alt="User Icon">CRM</a>
+        <a href="user_info.php"><img src="Images/user.png" alt="User Icon">CRM</a>
         <div class="logout">Logout</div>
     </div>
     
     <div class="content">
         <div class="header">
             <h1>CRM Dashboard</h1>
-            <div class="nav-bar">
-                <div class="icon-container">
-                    <img src="Images/email.png" alt="Messages" id="message-icon">
-                    <span class="badge" id="message-badge">0</span>
-                </div>
-                <img src="Images/user.png" alt="Profile Picture" class="profile-pic">
-            </div>
         </div>
 
         <div class="table-container">

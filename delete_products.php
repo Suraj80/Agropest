@@ -1,14 +1,16 @@
 <?php
 
-// Start session
 session_start();
 
-// Check if the admin is logged in
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    // Redirect to login page if not logged in
+
+
+// Check if username is "admin" and logg_in is true
+if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
+    // Redirect to login page if the conditions are not met
     header("Location: login.php");
     exit();
 }
+
 
 
 $servername = "localhost";
@@ -88,7 +90,7 @@ if (isset($_POST['delete'])) {
             height: 20px;
         }
         .logout {
-            margin-top: auto;
+            margin-top: 10px;
             padding: 15px 20px;
             background-color: #e74c3c;
             color: white;
@@ -166,7 +168,7 @@ if (isset($_POST['delete'])) {
     <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
     <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
     <a href="CMS.html"><img src="Images/user.png" alt="User Icon">CRM</a>
-    <div class="logout">Logout</div>
+    <div class="logout"><a href="Logout.php">Logout</a></div>
 </div>
 <div class="main-content">
     <div class="navbar">

@@ -2,15 +2,13 @@
 // Start the session
 session_start();
 
-// Set session variable
-$_SESSION['username'] = 'admin'; // You can store any data you want
-$_SESSION['logged_in'] = true;    // For example, setting a logged-in status
-
 if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
     // Redirect to login page if the conditions are not met
     header("Location: login.php");
     exit();
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -217,7 +215,7 @@ if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
 
     <div class="sidebar">
         <h1>Agropest</h1>
-        <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
+        <a href="Admin_dashboard.php"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
         <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
         <a href="user_info.php"><img src="Images/user.png" alt="User Icon">CRM</a>
         <div class="logout"><a href="Logout.php">Logout</a></div>

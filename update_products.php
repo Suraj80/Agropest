@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+
 
 // Check if username is "admin" and logg_in is true
 if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
@@ -116,7 +119,7 @@ $conn->close();
             height: 20px;
         }
         .logout {
-            margin-top: auto;
+            margin-top: 10px;
             padding: 15px 20px;
             background-color: #e74c3c;
             color: white;

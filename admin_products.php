@@ -122,6 +122,29 @@ $conn->close();
             padding: 20px;
             width: 100%;
         }
+        .navbar {
+            background-color: #333;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+        }
+        .navbar-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar-links a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .navbar-links a:hover {
+            background-color: #ddd;
+            color: black;
+        }
         .form-container {
             max-width: 500px;
             padding: 20px;
@@ -129,6 +152,7 @@ $conn->close();
             border-radius: 5px;
             background-color: #f9f9f9;
         }
+        
         label {
             display: block;
             margin-bottom: 8px;
@@ -163,9 +187,18 @@ $conn->close();
         <a href="Admin_dashboard.php">Dashboard</a>
         <a href="admin_products.php">Products</a>
         <a href="user_info.php">CRM</a>
-        <div class="logout">Logout</div>
+        <div class="logout"><a href="Logout.php">Logout</a></div>
     </div>
     <div class="main-content">
+    <div class="navbar">
+        <div class="navbar-title">Products Dashboard</div>
+        <div class="navbar-links">
+            <a href="admin_products.php">Add Product</a>
+            <a href="update_products.php">Update Product</a>
+            <a href="delete_products.php">Delete Product</a>
+        </div>
+    </div>
+    <div class="main-content2">
         <h1>Admin - Manage Products</h1>
         <p>Total Products Listed: <strong><?php echo $productCount; ?></strong></p>
         <div class="form-container">

@@ -26,6 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
+
+// Set session variable
+    $_SESSION['username'] = 'admin'; // You can store any data you want
+    $_SESSION['logged_in'] = true;    // For example, setting a logged-in status
         // Login successful, redirect to admin dashboard
         header("Location: admin_dashboard.php");
         exit();
