@@ -187,7 +187,7 @@ $result = $conn->query($sql);
         <a href="Admin_dashboard.php"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
         <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
         <a href="user_info.php"><img src="Images/user.png" alt="User Icon">CRM</a>
-        <div class="logout">Logout</div>
+        <div class="logout"><a href="Logout.php">Logout</a></div>
     </div>
     
     <div class="content">

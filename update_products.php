@@ -216,7 +216,7 @@ $conn->close();
     <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
     <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
     <a href="CMS.html"><img src="Images/user.png" alt="User Icon">CRM</a>
-    <div class="logout">Logout</div>
+    <div class="logout"><a href="Logout.php">Logout</a></div>
 </div>
 <div class="main-content">
     <div class="navbar">
