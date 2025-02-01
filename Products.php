@@ -156,7 +156,7 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="top-nav">
-        <a href="Login.html">Admin Login</a>
+        <a href="Login.php">Admin Login</a>
     </div>
 
     <div class="main-nav">
@@ -171,7 +171,7 @@ $result = $conn->query($sql);
     </div>
 
     <header>
-        <img src="https://via.placeholder.com/1200x300" alt="Product Banner">
+        <img src="Images/box.png" alt="Product Banner" width="100px" height="80px">
     </header>
 
     <section>

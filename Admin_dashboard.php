@@ -249,9 +249,9 @@ if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
                         <li><strong>Top Traffic Source:</strong> Organic Search</li>
                         <li><strong>Top Referring Site:</strong> Facebook</li>
                         <li><strong>Mobile vs Desktop:</strong> 70% mobile, 30% desktop</li>
-                        <li><strong>Top Landing Page:</strong> /home</li>
-                        <li><strong>Top Exit Page:</strong> /contact-us</li>
-                        <li><strong>Country with Most Visitor   s:</strong> United States</li>
+                        <li><strong>Top Landing Page:</strong> /Index</li>
+                        <li><strong>Top Exit Page:</strong> /Contact</li>
+                        <li><strong>Country with Most Visitor   s:</strong> India</li>
                         <li><strong>Gender Distribution:</strong> 55% Male, 45% Female</li>
                         <li><strong>Age Range:</strong> 18-34 (45%), 35-54 (35%), 55+ (20%)</li>
                     </ul>
