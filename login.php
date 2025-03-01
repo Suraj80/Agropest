@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['username'] = 'admin'; // You can store any data you want
     $_SESSION['logged_in'] = true;    // For example, setting a logged-in status
         // Login successful, redirect to admin dashboard
-        header("Location: admin_dashboard.php");
+        header("Location: Admin/admin_dashboard.php");
         exit();
     } else {
         $error_message = "Invalid username or password.";

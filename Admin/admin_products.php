@@ -86,37 +86,7 @@ $conn->close();
             padding: 0;
             display: flex;
         }
-        .sidebar {
-            height: 100vh;
-            width: 250px;
-            background-color: #2c3e50;
-            color: white;
-            position: fixed;
-            padding-top: 20px;
-        }
-        .sidebar h1 {
-            text-align: center;
-            font-size: 20px;
-            padding: 15px 0;
-            border-bottom: 1px solid #34495e;
-        }
-        .sidebar a {
-            text-decoration: none;
-            color: white;
-            padding: 15px 20px;
-            display: block;
-        }
-        .sidebar a:hover {
-            background-color: #34495e;
-        }
-        .logout {
-            margin-top: 20px;
-            padding: 15px 20px;
-            background-color: #e74c3c;
-            color: white;
-            text-align: center;
-            cursor: pointer;
-        }
+        
         .main-content {
             margin-left: 250px;
             padding: 20px;
@@ -182,13 +152,7 @@ $conn->close();
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h1>Agropest</h1>
-        <a href="Admin_dashboard.php">Dashboard</a>
-        <a href="admin_products.php">Products</a>
-        <a href="user_info.php">CRM</a>
-        <div class="logout"><a href="Logout.php">Logout</a></div>
-    </div>
+<?php include 'sidebar.php'; ?> 
     <div class="main-content">
     <div class="navbar">
         <div class="navbar-title">Products Dashboard</div>

@@ -1,12 +1,9 @@
 <?php
-
 session_start();
 
-
-
-// Check if username is "admin" and logg_in is true
-if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
-    // Redirect to login page if the conditions are not met
+// Check if username is "admin" and logged_in is true
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
+    // Redirect to login page if conditions are not met
     header("Location: login.php");
     exit();
 }
@@ -24,7 +21,10 @@ if ($conn->connect_error) {
 }
 
 $product = null; // Holds product details after fetching
+$error_message = "";
+$success_message = "";
 
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['fetch'])) {
         // Fetch product details by ID or name
@@ -36,6 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $stmt->get_result();
         $product = $result->fetch_assoc();
         $stmt->close();
+
+        // If no product is found, set an error message
+        if (!$product) {
+            $error_message = "Product not available.";
+        }
     } elseif (isset($_POST['update'])) {
         // Update product details
         $id = $_POST['id'];
@@ -43,32 +48,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $description = $_POST['description'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
-        $photo = $_FILES['photo']['name'];
 
-        if ($photo) {
-            $targetDir = "uploads/";
-            $targetFile = $targetDir . basename($photo);
-            move_uploaded_file($_FILES['photo']['tmp_name'], $targetFile);
+        // Handle image upload
+        if (isset($_FILES['photo']) && $_FILES['photo']['size'] > 0) {
+            $targetDir = "uploads/"; // Directory to store images
+            $targetFile = $targetDir . basename($_FILES['photo']['name']);
 
-            $sql = "UPDATE products SET name=?, description=?, price=?, quantity=?, photo=? WHERE id=?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssdibi", $name, $description, $price, $quantity, $targetFile, $id);
+            if (move_uploaded_file($_FILES['photo']['tmp_name'], $targetFile)) {
+                // Update with new image
+                $sql = "UPDATE products SET name=?, description=?, price=?, quantity=?, Image=? WHERE id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ssdisi", $name, $description, $price, $quantity, $targetFile, $id);
+            } else {
+                $error_message = "Failed to upload image.";
+            }
         } else {
+            // Update without changing image
             $sql = "UPDATE products SET name=?, description=?, price=?, quantity=? WHERE id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ssdii", $name, $description, $price, $quantity, $id);
         }
 
         if ($stmt->execute()) {
-            header("Location: update_products.php?success=1");
-            exit;
+            $success_message = "Product updated successfully!";
         } else {
-            echo "Error updating product: " . $stmt->error;
+            $error_message = "Error updating product: " . $stmt->error;
         }
         $stmt->close();
     }
 }
-
 $conn->close();
 ?>
 
@@ -84,50 +92,6 @@ $conn->close();
             margin: 0;
             padding: 0;
             display: flex;
-        }
-        .sidebar {
-            height: 100vh;
-            width: 250px;
-            background-color: #2c3e50;
-            color: white;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            padding-top: 20px;
-        }
-        .sidebar h1 {
-            text-align: center;
-            margin: 0;
-            font-size: 20px;
-            padding: 15px 0;
-            border-bottom: 1px solid #34495e;
-        }
-        .sidebar a {
-            text-decoration: none;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-        .sidebar a:hover {
-            background-color: #34495e;
-        }
-        .sidebar img {
-            margin-right: 10px;
-            width: 20px;
-            height: 20px;
-        }
-        .logout {
-            margin-top: 10px;
-            padding: 15px 20px;
-            background-color: #e74c3c;
-            color: white;
-            text-align: center;
-            cursor: pointer;
-        }
-        .logout:hover {
-            background-color: #c0392b;
         }
         .main-content {
             margin-left: 250px;
@@ -211,13 +175,8 @@ $conn->close();
     </style>
 </head>
 <body>
-<div class="sidebar">
-    <h1>Agropest</h1>
-    <a href="Admin_dashboard.html"><img src="Images/dashboard.png" alt="Dashboard Icon">Dashboard</a>
-    <a href="admin_products.php"><img src="Images/box.png" alt="Products Icon">Products</a>
-    <a href="CMS.html"><img src="Images/user.png" alt="User Icon">CRM</a>
-    <div class="logout"><a href="Logout.php">Logout</a></div>
-</div>
+<?php include 'sidebar.php'; ?>
+
 <div class="main-content">
     <div class="navbar">
         <div class="navbar-title">Products Dashboard</div>
@@ -239,6 +198,11 @@ $conn->close();
                 <button type="submit" name="fetch">Fetch</button>
             </form>
         </div>
+        
+        <?php if (isset($error_message)): ?>
+        <div class="error"><?php echo $error_message; ?></div>
+        <?php endif; ?>
+
 
         <!-- Display and Update Product Form -->
         <?php if ($product): ?>
@@ -259,11 +223,14 @@ $conn->close();
                     <label for="quantity">Product Quantity:</label>
                     <input type="number" id="quantity" name="quantity" value="<?php echo $product['Quantity']; ?>" required>
 
-                    <label for="photo">Product Photo (Current):</label>
-                    <img src="<?php echo $product['image']; ?>" alt="Product Photo" width="20px" height="40px">
+                    <label for="photo">Current Product Photo:</label>
+                    <img src="data:image/jpeg;base64,<?php echo base64_encode($product['Image']); ?>" alt="<?php echo htmlspecialchars($product['Name']); ?>" width="150">
+
+                    <label for="photo">Upload New Product Photo:</label>
                     <input type="file" id="photo" name="photo" accept="image/*">
 
                     <button type="submit" name="update">Update Product</button>
+
                 </form>
             </div>
         <?php endif; ?>

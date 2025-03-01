@@ -1,14 +1,5 @@
 <?php
 
-session_start();
-
-// Check if the admin is logged in
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    // Redirect to login page if not logged in
-    header("Location: login.php");
-    exit();
-}
-
 // Database connection
 $servername = "localhost";
 $username = "root"; // Replace with your database username
