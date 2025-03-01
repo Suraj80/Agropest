@@ -1,47 +1,3 @@
-<?php
-// Start the session
-session_start();
-
-// Database connection
-$servername = "localhost"; // Replace with your database server
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "user_db"; // Replace with your database name
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $input_username = $_POST['username'];
-    $input_password = $_POST['password'];
-
-    // SQL query to check if the username and password match the admin table
-    $stmt = $conn->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $input_username, $input_password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-
-// Set session variable
-    $_SESSION['username'] = 'admin'; // You can store any data you want
-    $_SESSION['logged_in'] = true;    // For example, setting a logged-in status
-        // Login successful, redirect to admin dashboard
-        header("Location: Admin/admin_dashboard.php");
-        exit();
-    } else {
-        $error_message = "Invalid username or password.";
-    }
-
-    $stmt->close();
-}
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +32,7 @@ $conn->close();
             transform: translate(-50%, -50%);
             background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
-            padding: 30px 40px;
+            padding: 45px 60px;
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
             text-align: center;
             width: 250px;
@@ -145,11 +101,33 @@ $conn->close();
             color: red;
             margin-top: 10px;
         }
+
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color:rgb(0, 179, 90);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 15px 25px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            
+            background-color:rgb(0, 255, 98);
+        }
     </style>
 </head>
 <body>
     <!-- Background Image -->
-    <img src="Images/loginbg.jpg" alt="Farming fields" id="img1">
+    <img src="../Images/loginbg.jpg" alt="Farming fields" id="img1">
+
+    <!-- Back Button -->
+    <a href="../Index.html" class="back-button">Back</a>
 
     <!-- Login Form -->
     <div class="login-container">

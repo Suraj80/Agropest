@@ -48,7 +48,7 @@ $conn->close();
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('Images/Field.jpg') no-repeat center center fixed;
+            background: url('../Images/Field.jpg') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -59,7 +59,7 @@ $conn->close();
         }
         .form-container {
             background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
+            padding: 35px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -101,9 +101,28 @@ $conn->close();
             margin-bottom: 15px;
             text-align: center;
         }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color:rgb(0, 179, 90);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 15px 25px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            
+            background-color:rgb(0, 255, 98);
+        }
     </style>
 </head>
 <body>
+<a href="Login.php" class="back-button">Back</a>
+
     <div class="form-container">
         <h2>Forgot Password</h2>
         <?php if (!empty($error_message)): ?>

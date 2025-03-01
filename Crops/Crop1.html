@@ -291,13 +291,30 @@
             max-width: 100px;
             height: auto;
         }
+        footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
         
     </style>
 </head>
 <body>
     <!-- Top navigation bar -->
     <div class="top-nav">
-        <a href="../Admin/Login.php">Admin Login</a>
+        <a href="../Login/Login.php">Admin Login</a>
     </div>
 
     <!-- Main navigation bar -->
@@ -361,8 +378,8 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 50%">Pests Or Diseases</th>
-                    <th style="width: 50%">Recommended Product Solutions</th>
+                    <th style="width: 80%">Pests Or Diseases</th>
+                    <th style="width: 80%">Recommended Product Solutions</th>
                 </tr>
             </thead>
             <tbody>
@@ -481,5 +498,9 @@
             });
         });
     </script>
+
+<footer>
+    <p>© 2024 Agro Pest. All Rights Reserved.</p>
+</footer>
 </body>
 </html>
