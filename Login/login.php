@@ -1,5 +1,7 @@
 <?php
 // Start the session
+session_start();
+
 
 // Database connection
 $servername = "localhost"; // Replace with your database server
