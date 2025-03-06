@@ -1,3 +1,47 @@
+<?php
+// Start the session
+
+// Database connection
+$servername = "localhost"; // Replace with your database server
+$username = "root"; // Replace with your database username
+$password = ""; // Replace with your database password
+$dbname = "user_db"; // Replace with your database name
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $input_username = $_POST['username'];
+    $input_password = $_POST['password'];
+
+    // SQL query to check if the username and password match the admin table
+    $stmt = $conn->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
+    $stmt->bind_param("ss", $input_username, $input_password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Set session variables
+        $_SESSION['username'] = 'admin';
+        $_SESSION['logged-in'] = true;
+
+        // Redirect to dashboard
+        header("Location: ../Admin/Admin_dashboard.php");
+        exit();
+    } else {
+        $error_message = "Invalid username or password.";
+    }
+
+    $stmt->close();
+}
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +151,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            background-color:rgb(0, 179, 90);
+            background-color: rgb(0, 179, 90);
             color: white;
             border: none;
             border-radius: 6px;
@@ -117,8 +161,7 @@
         }
 
         .back-button:hover {
-            
-            background-color:rgb(0, 255, 98);
+            background-color: rgb(0, 255, 98);
         }
     </style>
 </head>
@@ -132,7 +175,7 @@
     <!-- Login Form -->
     <div class="login-container">
         <h2>Login Required</h2>
-        <form action="" method="post">
+        <form action="login.php" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
 

@@ -14,6 +14,7 @@ $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +28,8 @@ $result = $conn->query($sql);
             padding: 0;
             background-color: #f9f9f9;
         }
+        
+        /* Top Navigation */
         .top-nav {
             background-color: darkgreen;
             color: white;
@@ -48,6 +51,7 @@ $result = $conn->query($sql);
             border-radius: 20px;
         }
 
+        /* Main Navigation */
         .main-nav {
             background-color: rgb(231, 231, 231);
             display: flex;
@@ -82,6 +86,7 @@ $result = $conn->query($sql);
             border-radius: 5px;
         }
 
+        /* Header */
         header {
             text-align: center;
             background-color: #ffffff;
@@ -93,6 +98,7 @@ $result = $conn->query($sql);
             height: auto;
         }
 
+        /* Section */
         section {
             text-align: center;
             padding: 20px;
@@ -105,9 +111,10 @@ $result = $conn->query($sql);
             margin-bottom: 10px;
         }
 
+        /* Product Grid */
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr); /* 4 products per row */
             gap: 20px;
             padding: 20px;
         }
@@ -116,14 +123,16 @@ $result = $conn->query($sql);
             background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 10px;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .product img {
-            width: 150px;
-            height: auto;
+            width: 100px;
+            height: 100px;
+            object-fit: cover; /* Ensures images are displayed properly */
+            border-radius: 5px;
             margin-bottom: 10px;
         }
 
@@ -136,6 +145,7 @@ $result = $conn->query($sql);
         .product p {
             font-size: 14px;
             color: #666;
+            text-align: justify; /* Proper text alignment */
         }
 
         .product button {
@@ -151,6 +161,25 @@ $result = $conn->query($sql);
 
         .product button:hover {
             background-color: #218838;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr); /* Show 3 products per row on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr); /* Show 2 products per row on tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: repeat(1, 1fr); /* Show 1 product per row on small screens */
+            }
         }
     </style>
 </head>
@@ -180,17 +209,16 @@ $result = $conn->query($sql);
     </section>
 
     <section class="products">
-    <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="product">
-            <img src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt="<?php echo $row['Name']; ?>">
-            <h2><?php echo htmlspecialchars($row['Name']); ?></h2>
-            <p><?php echo htmlspecialchars($row['Description']); ?></p>
-            <p><strong>Price:</strong> ₹<?php echo htmlspecialchars($row['Price']); ?></p>
-            <p><strong>Quantity:</strong> <?php echo htmlspecialchars($row['Quantity']); ?></p>
-            <button>Know More</button>
-        </div>
-    <?php endwhile; ?>
-</section>
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="product">
+                <img src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt="<?php echo htmlspecialchars($row['Name']); ?>">
+                <h2><?php echo htmlspecialchars($row['Name']); ?></h2>
+                <p><?php echo htmlspecialchars($row['Description']); ?></p>
+                <p><strong>Price:</strong> ₹<?php echo htmlspecialchars($row['Price']); ?></p>
+                <p><strong>Quantity:</strong> <?php echo htmlspecialchars($row['Quantity']); ?></p>
+            </div>
+        <?php endwhile; ?>
+    </section>
 
 </body>
 </html>

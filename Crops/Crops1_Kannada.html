@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your October Harvest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top navigation bar */
+        .top-nav {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-nav a:hover {
+            background-color: rgb(1, 65, 1);
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Main navigation bar */
+        .main-nav {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .main-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .main-nav .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: darkgreen;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav .nav-links a:hover {
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        .main-nav .dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown {
+            position: relative;
+        }
+
+        .main-nav .language-dropdown button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .main-nav .language-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            min-width: 120px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .main-nav .language-dropdown-content a {
+            color: darkgreen;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .main-nav .language-dropdown-content a:hover {
+            background-color: lightgray;
+        }
+
+        .main-nav .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .blog-image img {
+            display: block;
+            max-width: 40%; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin: 20px auto; /* Center the image */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-container {
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-left: 5px solid #0a9d3f;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 80%;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.blog-container:hover {
+    transform: scale(1.02);
+}
+
+.blog-container h2 {
+    color: darkgreen;
+    font-size: 26px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.blog-container p {
+    text-align: justify;
+}
+
+.highlight {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.list {
+    padding-left: 25px;
+}
+
+.list li {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.quote {
+    font-style: italic;
+    color: #555;
+    background: #e9f5e9;
+    padding: 10px;
+    border-left: 4px solid darkgreen;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+
+        .popular {
+            background: #f4f4f4;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .popular ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .popular li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .popular img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links li {
+            margin: 0 10px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0a9d3f;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .section-title {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .main-image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            cursor: pointer;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .product-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background: #eef7eb;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.crop-image, .product-images {
+    flex: 1;
+    text-align: center;
+}
+
+.crop-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.product-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-images img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+        .weather-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Optional: Adjust margin as needed */
+}
+
+.weather-card {
+    margin: 0 auto; /* Center the weather card horizontally */
+    max-width: 400px; /* Adjust maximum width as per your design */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+footer {
+            background-color: #4caf50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="../Admin/Login.php">ನಿರ್ವಾಹಕ ಲಾಗಿನ್</a>
+    </div>
+    
+    <!-- ಮುಖ್ಯ ನ್ಯಾವಿಗೇಶನ್ ಪಟ್ಟಿ -->
+    <div class="main-nav">
+        <div class="logo">ಅಗ್ರೋ ಪೆಸ್ಟ್</div>
+        <div class="nav-links">
+            <a href="../Index.html">ಮುಖಪುಟ</a>
+            <div class="dropdown">
+                <a href="#">ಬೆಳೆ ಪರಿಹಾರಗಳು</a>
+                <div class="dropdown-content">
+                    <a href="../Products.html">ಉತ್ಪನ್ನಗಳು</a>
+                    <a href="../Crops.html">ಬೆಳೆಗಳು</a>
+                </div>
+            </div>
+            <a href="../About.html">ನಮ್ಮ ಬಗ್ಗೆ</a>
+            <a href="../Contact.html">ಸಂಪರ್ಕಿಸಿ</a>
+        </div>
+        <div class="language-dropdown">
+            <button>ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ</button>
+            <div class="language-dropdown-content">
+                <a href="Crop1.html">English</a>
+                <a href="Crop1_Kannada.html">ಕನ್ನಡ</a>
+                <a href="Crops1_Hindi.html.html">हिंदी</a>
+            </div>
+        </div>
+    </div>
+    
+    <header>
+        <h1>ನಿಮ್ಮ ಈರುಳ್ಳಿ ಬೆಳೆಗಳನ್ನು ರಕ್ಷಿಸಿ</h1>
+        <p>ಅಗ್ರೋ ಪೆಸ್ಟ್ | ಜನವರಿ 01, 2025</p>
+    </header>
+    
+    <main>
+        <div style="display: flex; justify-content: center; align-items: center; height: 70vh; max-width: 100%;">
+            <iframe width="600" height="450" src="https://www.youtube.com/embed/tx5-6k1y874?si=84Ne1ghkciRotrPI" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+    
+        <section class="blog-container">
+            <h2>ಈರುಳ್ಳಿ: ಬಹುಮುಖ ಮತ್ತು ಅವಶ್ಯಕ ಬೆಳೆ</h2>
+            <p>
+                <strong>ಈರುಳ್ಳಿ (Allium cepa L.)</strong>, ಸಾಮಾನ್ಯವಾಗಿ ಬಲ್‍ಬ್ ಈರುಳ್ಳಿ ಎಂದು ಕರೆಯಲ್ಪಡುವುದು, ಜಾಗತಿಕ ಅಡುಗೆ ಮತ್ತು ಕೃಷಿಯಲ್ಲಿ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸುತ್ತದೆ. ಭಾರತವು ಜಗತ್ತಿನ <span class="highlight">ಎರಡನೇ ಅತಿದೊಡ್ಡ</span> ಈರುಳ್ಳಿ ಉತ್ಪಾದಕ ದೇಶವಾಗಿದೆ.
+            </p>
+            
+            <h3>🌱 ಕೃಷಿ ಮತ್ತು ಬೆಳವಣಿಗೆ</h3>
+            <p>
+                ಈರುಳ್ಳಿಗಳು <span class="highlight">ಎರಡನೇ ವರ್ಷದ ಸಸ್ಯಗಳು</span> ಆದರೆ ಸಾಮಾನ್ಯವಾಗಿ ವಾರ್ಷಿಕ ಬೆಳೆಗಳಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ. ಚೆನ್ನಾಗಿ ಹೋದ ಮಣ್ಣು ಮತ್ತು ಸಮರ್ಪಕ ನೀರಾವರಿ ಅವಶ್ಯಕವಾಗಿದೆ. ಬೆಳೆ <span class="highlight">80 ರಿಂದ 150 ದಿನಗಳ</span> ಒಳಗಾಗಿ ತಯಾರಾಗುತ್ತದೆ.
+            </p>
+        
+            <h3>🍽 ಅಡುಗೆ ಬಳಕೆ</h3>
+            <p>
+                ಈರುಳ್ಳಿಗಳನ್ನು ಹಲವು ರೀತಿಯಲ್ಲಿ ಬಳಸಲಾಗುತ್ತದೆ:
+                <ul class="list">
+                    <li>ಸಲಾಡ್‍ಗಳಲ್ಲಿ ತಾಜಾ ಮತ್ತು ತುಪ್ಪಳದ ರುಚಿಗೆ.</li>
+                    <li>ಕರೆಗಳು, ಸ್ಟ್ಯೂಗಳು, ಸೂಪ್‍ಗಳಿಗೆ ಬೇಸ್ ಆಧಾರವಾಗಿ.</li>
+                    <li>ಕಾರಮೆಲೈಜ್ಡ್ ಮಾಡಿ ಸಿಹಿ ಮತ್ತು ರುಚಿಕರವಾದ ಆಹಾರಕ್ಕೆ.</li>
+                    <li>ಉಪ್ಪಿನಕಾಯಿ ಅಥವಾ ಚಟ್ನಿಯಗಳಲ್ಲಿ ಟಾಂಗೀ ರುಚಿಗಾಗಿ.</li>
+                </ul>
+            </p>
+        
+            <h3>💪 ಆರೋಗ್ಯ ಲಾಭಗಳು</h3>
+            <p>
+                ಈರುಳ್ಳಿಗಳು ಪೋಷಕಾಂಶಗಳಿಂದ ಸಮೃದ್ಧ:
+                <ul class="list">
+                    <li><span class="highlight">ಆಂಟಿ-ಆಕ್ಸಿಡೆಂಟ್‍ಗಳಲ್ಲಿ ಸಮೃದ್ಧ</span>: ರೋಗ ನಿರೋಧಕತೆಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.</li>
+                    <li><span class="highlight">ಹೃದಯ ಆರೋಗ್ಯ</span>: ಕೆಳದೊತ್ತಡ ಮತ್ತು ಕೊಲೆಸ್ಟ್ರಾಲ್ ಕಡಿಮೆ ಮಾಡುತ್ತದೆ.</li>
+                    <li><span class="highlight">ವಾಯುಮಂಡಲ ಪ್ರಭಾವ</span>: ಜಾಗತಿಕ ಪಾಕಶಾಲೆಯಲ್ಲಿ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸುತ್ತದೆ.</li>
+                </ul>
+            </p>
+        
+            <h3>🌿 ಶಿಫಾರಸು ಮಾಡಲಾದ ಬೆಳೆ ಪರಿಹಾರಗಳು</h3>
+            <p>
+                ನಿಮ್ಮ ಈರುಳ್ಳಿ ಬೆಳೆಗಳ ಆರೋಗ್ಯ ಮತ್ತು ಉತ್ಪಾದಕತೆಯನ್ನು ಹೆಚ್ಚಿಸಲು, ಕೀಟಗಳು, ರೋಗಗಳು ಮತ್ತು ಪೋಷಕಾಂಶ ಕೊರತೆಯಿಂದ ರಕ್ಷಿಸಬೇಕು. 
+                ಕೆಳಗಿನ ಉತ್ಪನ್ನಗಳು, ಇದರಲ್ಲಿ ಕೀಟನಾಶಕಗಳು, ಶಿಲೀಂಧ್ರನಾಶಕಗಳು ಮತ್ತು ರಾಸಾಯನಿಕಗಳನ್ನು ಒಳಗೊಂಡಿವೆ, ಬೆಳೆ ಗುಣಮಟ್ಟವನ್ನು ಉತ್ತಮಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.
+            </p>
+        </section>
+    </main>
+    
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50%">ಕೀಟಗಳು ಅಥವಾ ರೋಗಗಳು</th>
+                    <th style="width: 50%">ಶಿಫಾರಸು ಮಾಡಲಾದ ಉತ್ಪನ್ನ ಪರಿಹಾರಗಳು</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <h2 class="section-title">ಜಳ್ಳಿಗಳು</h2>
+                        <div class="main-image-container">
+                            <img src="../Images/Onion_crop.jpg" alt="Weeds Main" class="main-image" id="weeds-main">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="products">
+                            <img src="../Images/Onion_product.png" alt="Product 1" class="product-image">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="section-title">ಉತ್ತಮ ಬೆಳೆ ಆರೋಗ್ಯ ಮತ್ತು ಉತ್ಪಾದನೆ</h2>
+                        <div class="main-image-container">
+                            <img src="../Images/Onion_crop2.jpg" alt="Crop Health Main" class="main-image" id="crop-main">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="products">
+                            <img src="../Images/Onion_product2.png" alt="Product 1" class="product-image" width="300px" height="300px">
+                            <img src="../Images/Onion_product3.png" alt="Product 2" class="product-image">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+  
+    
+    <div class="container">
+        <h1 style="text-align: center;">ಹವಾಮಾನ ಶೋಧನೆ</h1>
+        <div class="weather-search">
+            <input type="text" id="cityInput" placeholder="ನಗರದ ಹೆಸರು ನಮೂದಿಸಿ">
+            <button onclick="searchWeather()">ಹುಡುಕಿ</button>
+        </div>
+        <div id="weatherResult" class="weather-card"></div>
+    </div>
+    
+    
+
+    <script>
+        async function searchWeather() {
+            const apiKey = '0d6163ab146c83e132041af8a0d28234'; // Replace with your OpenWeatherMap API key
+            const cityInput = document.getElementById('cityInput').value;
+
+            if (cityInput.trim() === "") {
+                alert("Please enter a city name");
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`);
+                const data = await response.json();
+
+                if (data.cod !== 200) {
+                    document.getElementById('weatherResult').innerHTML = `<p>${data.message}</p>`;
+                    return;
+                }
+
+                document.getElementById('weatherResult').innerHTML = `
+                    <h2>${data.name}, ${data.sys.country}</h2>
+                    <p>Temperature: ${data.main.temp} &deg;C</p>
+                    <p>Description: ${data.weather[0].description}</p>
+                    <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="Weather Icon">
+                `;
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                document.getElementById('weatherResult').innerHTML = '<p>Failed to fetch weather data. Please try again.</p>';
+            }
+        }
+    </script>
+    <script>
+        function changeImage(thumbnail, mainImageId) {
+            const mainImage = document.getElementById(mainImageId);
+            mainImage.src = thumbnail.src;
+        }
+
+        // Optional: Add hover effect for thumbnails
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('mouseover', function() {
+                this.style.opacity = '0.8';
+            });
+            thumb.addEventListener('mouseout', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector("header");
+            header.style.transition = "background 0.5s ease";
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.style.background = "#333";
+                } else {
+                    header.style.background = "#4CAF50";
+                }
+            });
+        });
+    </script>
+      <footer>
+        <p>© 2024 ಅಗ್ರೋ ಪೆಸ್ಟ್. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.</p>
+    </footer>
+</body>
+</html>

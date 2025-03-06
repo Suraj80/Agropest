@@ -1,14 +1,10 @@
 <?php
 // Start the session
 session_start();
-
-if ($_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
-    // Redirect to login page if the conditions are not met
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin' || !isset($_SESSION['logged-in']) || $_SESSION['logged-in'] !== true) {
     header("Location: login.php");
     exit();
-
 }
-
 
 ?>
 

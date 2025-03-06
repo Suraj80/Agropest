@@ -1,12 +1,10 @@
 <?php
 session_start();
-
-// Check if username is "admin" and logged_in is true
-if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin' || $_SESSION['logged_in'] !== true) {
-    // Redirect to login page if conditions are not met
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin' || !isset($_SESSION['logged-in']) || $_SESSION['logged-in'] !== true) {
     header("Location: login.php");
     exit();
 }
+
 
 // Database connection
 $servername = "localhost";

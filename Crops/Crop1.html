@@ -153,9 +153,60 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .blog-content {
-            padding: 20px;
-        }
+        .blog-container {
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-left: 5px solid #0a9d3f;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 80%;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.blog-container:hover {
+    transform: scale(1.02);
+}
+
+.blog-container h2 {
+    color: darkgreen;
+    font-size: 26px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.blog-container p {
+    text-align: justify;
+}
+
+.highlight {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.list {
+    padding-left: 25px;
+}
+
+.list li {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.quote {
+    font-style: italic;
+    color: #555;
+    background: #e9f5e9;
+    padding: 10px;
+    border-left: 4px solid darkgreen;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
 
         .popular {
             background: #f4f4f4;
@@ -180,8 +231,30 @@
             margin-right: 10px;
         }
 
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links li {
+            margin: 0 10px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
         .container {
-            max-width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -243,55 +316,60 @@
             opacity: 0.8;
         }
 
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-        }
+        .product-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background: #eef7eb;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
 
-        .product-image {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-        }
-        .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 400px;
-        }
-        input[type="text"] {
-            width: 70%;
-            padding: 8px;
-            margin-right: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .weather-card {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .weather-card img {
-            max-width: 100px;
-            height: auto;
-        }
-        footer {
+.crop-image, .product-images {
+    flex: 1;
+    text-align: center;
+}
+
+.crop-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.product-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-images img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+        .weather-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Optional: Adjust margin as needed */
+}
+
+.weather-card {
+    margin: 0 auto; /* Center the weather card horizontally */
+    max-width: 400px; /* Adjust maximum width as per your design */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+footer {
             background-color: #4caf50;
             color: #fff;
             text-align: center;
@@ -308,7 +386,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-        
     </style>
 </head>
 <body>
@@ -336,71 +413,101 @@
             <button>Select Language</button>
             <div class="language-dropdown-content">
                 <a href="Crop1.html">English</a>
-                <a href="Crop1_Kannada.html">Kannada</a>
-                <a href="Crops1_Hindi.html.html">Hindi</a>
+                <a href="Crops1_Kannada.html">ಕನ್ನಡ</a>
+                <a href="Crops1_Hindi.html">Hindi</a>
             </div>
         </div>
     </div>
 
     <header>
-        <h1>Protecting the Onion Farms </h1>
-        <p>By Agropest | March 01, 2025</p>
+        <h1>Protect Your Onion Crops</h1>
+        <p>By Agropest | January 01, 2025</p>
     </header>
-    <div style="display: flex; justify-content: center; align-items: center; height: 70vh; max-width: 100%;">
-        <iframe width="600" height="450" src="https://www.youtube.com/embed/H_QaIcaL7l8?si=r7cHQ1jfNZMeMJvS" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        </iframe>
-    </div>
-    <main>
-        
-        
 
-        <section class="blog-content">
+    <main>
+        <div style="display: flex; justify-content: center; align-items: center; height: 70vh; max-width: 100%;">
+            <iframe width="600" height="450" src="https://www.youtube.com/embed/tx5-6k1y874?si=84Ne1ghkciRotrPI" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+
+        <section class="blog-container">
+            <h2>Onion: A Versatile and Essential Crop</h2>
             <p>
-                Onion (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. The bulb can be white, yellow or red and require 80 to 150 days to reach harvest.Onion is a temperate crop but can be grown under a wide range of climatic conditions such as temperate, tropical and subtropical climate.
-            </p>
-            <p>
-                India is the second largest onion growing country in the world. Indian onions are famous for their pungency and are available round the year.
-            </p>
-            <p>
-                It is hardy a cool-season biennial but usually grown as annual crop. Onion has narrow, hollow leaves and a base which enlarges to form a bulb.
-            </p>
-            <p>
-                It is hardy a cool-season biennial but usually grown as annual crop. Onion has narrow, hollow leaves and a base which enlarges to form a bulb.
+                <strong>Onion (Allium cepa L.)</strong>, commonly known as the bulb onion, is a widely cultivated vegetable that plays a crucial role in global cuisine and agriculture. India ranks as the <span class="highlight">second-largest</span> onion producer worldwide, with onions being an integral part of Indian cooking.  
             </p>
             
-            
+            <h3>🌱 Cultivation and Growth</h3>
+            <p>
+                Onions are <span class="highlight">biennial plants</span> but are usually grown as annuals. They require well-drained, sandy loam soil with proper irrigation for optimal growth. 
+                The crop matures in approximately <span class="highlight">80 to 150 days</span>, depending on the variety and environmental conditions.  
+            </p>
+        
+            <h3>🍽 Culinary Uses</h3>
+            <p>
+                Onions are used in a variety of ways, including:
+                <ul class="list">
+                    <li>Raw in salads for a crisp and pungent taste.</li>
+                    <li>As a base ingredient in curries, stews, and soups.</li>
+                    <li>Caramelized to add a sweet and rich flavor to dishes.</li>
+                    <li>Pickled or used in chutneys for tangy condiments.</li>
+                </ul>
+            </p>
+        
+            <h3>💪 Health Benefits</h3>
+            <p>
+                Onions are packed with essential nutrients and compounds that benefit health:
+                <ul class="list">
+                    <li><span class="highlight">Rich in antioxidants</span>: Contains flavonoids and vitamin C, which boost immunity.</li>
+                    <li><span class="highlight">Heart health</span>: Helps reduce cholesterol and blood pressure.</li>
+                    <li><span class="highlight">Anti-inflammatory properties</span>: Beneficial for people with arthritis and other inflammatory conditions.</li>
+                    <li><span class="highlight">Improves digestion</span>: Rich in prebiotic fiber, which supports gut health.</li>
+                </ul>
+            </p>
+        
+            <h3>📜 Fun Fact</h3>
+            <p class="quote">
+                Did you know? Ancient Egyptians considered onions a symbol of eternity and even placed them in tombs of pharaohs!
+            </p>
+        
+            <h3>🌎 Global Impact</h3>
+            <p>
+                Onions are cultivated in various climates, from temperate to tropical regions. Major producing countries include <span class="highlight">India, China, and the United States</span>. 
+                They are not only an essential part of global cuisine but also contribute significantly to the economy.
+            </p>
+            <h3>🌿 Recommended Crop Solutions</h3>
+    <p>
+        To ensure a healthy and high-yield onion crop, it is essential to protect it from pests, diseases, and nutrient deficiencies. 
+        Below are the recommended products, including insecticides, fungicides, and pesticides, that help maintain crop quality and productivity.
+    </p>
         </section>
+        
+        
     </main>
 
     <div class="container">
         <table>
             <thead>
                 <tr>
-                    <th style="width: 80%">Pests Or Diseases</th>
-                    <th style="width: 80%">Recommended Product Solutions</th>
+                    <th style="width: 50%">Pests Or Diseases</th>
+                    <th style="width: 50%">Recommended Product Solutions</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Weeds Section -->
                 <tr>
                     <td>
-                        <h2 class="section-title">Thrips</h2>
+                        <h2 class="section-title">Weeds</h2>
                         <div class="main-image-container">
-                            <img src="../Images/Crop1_image1_product2.jpg" alt="Weeds Main" class="main-image" id="weeds-main">
-                        </div>
-                        <div class="thumbnails">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Weeds Thumbnail 1" class="thumbnail" onclick="changeImage(this, 'weeds-main')">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Weeds Thumbnail 2" class="thumbnail" onclick="changeImage(this, 'weeds-main')">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Weeds Thumbnail 3" class="thumbnail" onclick="changeImage(this, 'weeds-main')">
+                            <img src="../Images/Onion_crop.jpg" alt="Weeds Main" class="main-image" id="weeds-main">
+
                         </div>
                     </td>
                     <td>
                         <div class="products">
-                            <img src="../Images/Thrips_product.png" alt="Product 1" class="product-image">
-                            
+                            <img src="../Images/Onion_product.png" alt="Product 1" class="product-image">
                         </div>
                     </td>
                 </tr>
@@ -409,30 +516,30 @@
                     <td>
                         <h2 class="section-title">Better Crop Health And Yield</h2>
                         <div class="main-image-container">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Main" class="main-image" id="crop-main">
+                            <img src="../Images/Onion_crop2.jpg" alt="Crop Health Main" class="main-image" id="crop-main">
                         </div>
-                        <div class="thumbnails">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Thumbnail 1" class="thumbnail" onclick="changeImage(this, 'crop-main')">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Thumbnail 2" class="thumbnail" onclick="changeImage(this, 'crop-main')">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-26%20142137-UK1FoMtgeZBgWtmP2st1dBQ76MKCHn.png" alt="Crop Health Thumbnail 3" class="thumbnail" onclick="changeImage(this, 'crop-main')">
-                        </div>
+                        
                     </td>
                     <td>
                         <div class="products">
-                            <img src="/placeholder.svg" alt="Product 1" class="product-image">
-                            <img src="/placeholder.svg" alt="Product 2" class="product-image">
+                            <img src="../Images/Onion_product2.png" alt="Product 1" class="product-image" width="300px" height="300px">
+                            <img src="../Images/Onion_product3.png" alt="Product 2" class="product-image">
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    
     <div class="container">
-        <h1>Weather Search</h1>
-        <input type="text" id="cityInput" placeholder="Enter city name">
-        <button onclick="searchWeather()">Search</button>
+        <h1 style="text-align: center;">Weather Search</h1>
+        <div class="weather-search">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button onclick="searchWeather()">Search</button>
+        </div>
         <div id="weatherResult" class="weather-card"></div>
     </div>
+    
 
     <script>
         async function searchWeather() {
@@ -481,9 +588,6 @@
             });
         });
     </script>
-
-
-    
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
